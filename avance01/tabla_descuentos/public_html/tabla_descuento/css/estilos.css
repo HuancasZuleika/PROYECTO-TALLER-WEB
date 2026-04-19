@@ -39,9 +39,9 @@ body{
 .producto{
     background-color: white;
     display: flex;
-    justify-content: center; /* Centrado horizontal */
-    align-items: center;     /* Centrado vertical */
-    height: 120px;           /* Define un alto para que el centrado vertical se note */
+    justify-content: center; 
+    align-items: center;     
+    height: 120px;           
     padding: 10px;
 }
 .imagen-tabla{
