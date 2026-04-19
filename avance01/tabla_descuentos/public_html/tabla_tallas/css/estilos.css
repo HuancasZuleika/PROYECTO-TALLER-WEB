@@ -1,0 +1,66 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 19 abr. 2026, 2:36:16 p. m.
+    Author     : User
+*/
+.tabla_tallas_polo, .tabla_tallas_sudadera{
+    border: 1px solid #3AB397;
+    width: 30%;
+    margin: auto;
+    background-color:white;
+    border-radius: 5px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    line-height:24px;
+    text-align: center;
+    font-family: Arial;
+}
+.tabla_tallas_jogger, .tabla_tallas_leggings {
+    border: 1px solid #3AB397;
+    width: 40%;
+    margin: auto;
+    background-color:white;
+    border-radius: 5px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    line-height:24px;
+    text-align: center;
+    font-family: Arial;
+}
+
+.tabla_tallas_polo td, .tabla_tallas_sudadera td, .tabla_tallas_jogger td, .tabla_tallas_leggings td{
+    border: 1px solid #3AB397;
+}
+.tabla_tallas_polo img{
+    width: 150px;
+    height: 150px;
+}
+.tabla_tallas_sudadera img{
+    width: 200px;
+    height: 150px;
+}
+.tabla_tallas_jogger img{
+    width: 150px;
+    height: 200px
+}
+.tabla_tallas_leggings img{
+    width: 90px;
+    height: 200px
+}
+
+.tabla_tallas_polo tbody tr:nth-child(even):hover,
+.tabla_tallas_leggings tbody tr:nth-child(even):hover,
+.tabla_tallas_jogger tbody tr:nth-child(even):hover,
+.tabla_tallas_sudadera tbody tr:nth-child(even):hover{
+  background-color: #3AB397}
+
+.tabla_tallas_polo tbody tr:nth-child(1),
+.tabla_tallas_jogger tbody tr:nth-child(1),
+.tabla_tallas_leggings tbody tr:nth-child(1),
+.tabla_tallas_sudadera tbody tr:nth-child(1){
+ font-weight: bold}
