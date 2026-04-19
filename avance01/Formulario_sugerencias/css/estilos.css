@@ -1,0 +1,105 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 19 abr. 2026, 13:01:01
+    Author     : EVELIN VELASQUEZ M
+*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5; /* fondo neutro */
+}
+
+/* CONTENEDOR */
+.contenedor {
+    display: flex;
+    width: 80%;
+    margin: 80px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+}
+
+/* LADO IZQUIERDO */
+.info {
+    width: 40%;
+    background: #3AB397; /* COLOR PRINCIPAL */
+    padding: 40px;
+    text-align: center;
+    color: #ffffff; /* texto blanco para contraste */
+}
+
+.logo {
+    width: 220px;
+    margin-bottom: 20px;
+}
+
+/* FORMULARIO */
+.formulario {
+    width: 60%;
+    padding: 40px;
+}
+
+/* INPUTS */
+input, textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #ffffff;
+    transition: 0.3s;
+}
+
+/* EFECTO AL ESCRIBIR */
+input:focus, textarea:focus {
+    border-color: #3AB397;
+    box-shadow: 0 0 6px rgba(58,179,151,0.4);
+    outline: none;
+}
+
+/* TEXTAREA */
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* BOTÓN */
+button {
+    background: #3AB397; /* COLOR PRINCIPAL */
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* HOVER BOTÓN */
+button:hover {
+    background: #2e8f79; /* un poco más oscuro */
+}
+
+/* MENSAJE */
+#respuesta {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #3AB397;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .contenedor {
+        flex-direction: column;
+    }
+
+    .info, .formulario {
+        width: 100%;
+    }
+}
