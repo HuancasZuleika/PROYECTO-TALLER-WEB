@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+<head>
+    <title>Libro de Reclamos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="CSS/estilo.css" rel="stylesheet">
+    
+</head>
+<body>
+
+<div class="contenedor">
+
+    <!-- LADO IMAGEN -->
+    <div class="lado-imagen">
+    <img src="img/reclamo.png" alt=""/>
+</div>
+    <!-- FORMULARIO -->
+    <div class="lado-form">
+        <form>
+            <fieldset>
+
+                <legend>Libro de Reclamos</legend>
+
+                <div class="grupo">
+                    <input type="text" required>
+                    <label>Nombre completo</label>
+                </div>
+
+                <div class="grupo">
+                    <input type="text" required>
+                    <label>DNI</label>
+                </div>
+
+                <div class="grupo">
+                    <input type="email" required>
+                    <label>Correo</label>
+                </div>
+
+                <div class="grupo">
+                    <input type="text" required>
+                    <label>Celular</label>
+                </div>
+
+                <div class="grupo">
+                    <textarea required></textarea>
+                    <label>Detalle del reclamo</label>
+                </div>
+
+                <div class="terminos">
+                    <input type="checkbox" id="check">
+                    <label for="check" class="switch"></label>
+                    <span>Acepto términos</span>
+                </div>
+
+                <button>Enviar reclamo</button>
+
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

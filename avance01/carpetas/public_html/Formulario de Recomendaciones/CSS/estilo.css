@@ -1,0 +1,198 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 19 abr 2026, 8:38:15 p.m.
+    Author     : sayuri
+*/
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* CONTENEDOR GENERAL */
+.contenedor {
+    display: flex;
+    height: 100vh;
+}
+
+/* AMBOS LADOS MITAD Y MITAD */
+.lado-imagen,
+.lado-form {
+    flex: 1;
+}
+
+/* LADO IMAGEN */
+.lado-imagen {
+    background: linear-gradient(135deg, #3AB397, #1f7a6d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* IMAGEN AJUSTADA */
+
+.lado-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: mover 6s ease-in-out infinite;
+}
+
+@keyframes mover {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+}
+
+/* LADO FORMULARIO */
+.lado-form {
+    background: #f8f9fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FORMULARIO */
+form {
+    width: 350px;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    animation: entrada 0.8s ease;
+}
+
+/* ANIMACIÓN ENTRADA */
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* TITULO */
+legend {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #3AB397;
+}
+
+/* INPUTS */
+.grupo {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* LABEL */
+.grupo label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    color: #999;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+/* EFECTO */
+input:focus,
+textarea:focus {
+    border-bottom: 2px solid #3AB397;
+}
+
+/* LABEL ANIMADO */
+input:focus + label,
+input:valid + label,
+textarea:focus + label,
+textarea:valid + label {
+    top: -10px;
+    font-size: 11px;
+    color: #3AB397;
+}
+
+/* TEXTAREA */
+textarea {
+    resize: none;
+    min-height: 90px;
+}
+
+/* SWITCH */
+.terminos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.terminos input {
+    display: none;
+}
+
+.switch {
+    width: 45px;
+    height: 22px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.switch::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+/* ACTIVO */
+#check:checked + .switch {
+    background: #3AB397;
+}
+
+#check:checked + .switch::before {
+    transform: translateX(23px);
+}
+
+/* BOTÓN */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #3AB397;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* HOVER */
+button:hover {
+    background: #2a8f7c;
+    transform: scale(1.05);
+}
