@@ -1,0 +1,170 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 20 may. 2026, 8:22:28 p. m.
+    Author     : jharleth
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: #ffffff;
+}
+
+/* Navegación */
+.header-principal {
+    background-color: #000000;
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #222;
+}
+
+.contenedor-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-nav {
+    height: 180px; /* Ajusta según el tamaño de tu logo */
+}
+
+.menu-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+}
+
+.menu-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu-nav a:hover {
+    color: #00ff88; /* Verde deportivo llamativo para los hovers */
+}
+
+.menu-nav .btn-login {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.menu-nav .btn-login:hover {
+    background-color: #00ff88;
+    color: #000;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../imagenes/img6.png') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contenido-hero h1 {
+    font-size: 50px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.contenido-hero p {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.btn-principal, .btn-secundario {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.btn-principal {
+    background-color: #00ff88;
+    color: #000;
+}
+
+.btn-secundario {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-principal:hover { background-color: #fff; }
+.btn-secundario:hover { background-color: #fff; color: #000; }
+
+/* Grid de Productos/Categorías */
+.categorias-destacadas {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.categorias-destacadas h2 {
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta-categoria {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+
+.tarjeta-categoria img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.btn-enlace {
+    display: inline-block;
+    margin-top: 10px;
+    color: #00ff88;
+    text-decoration: none;
+}
+
+/* Footer */
+.footer-principal {
+    background-color: #000;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #222;
+    font-size: 14px;
+    color: #666;
+}
+.enlaces-footer a {
+    color: #999;
+    text-decoration: none;
+}
