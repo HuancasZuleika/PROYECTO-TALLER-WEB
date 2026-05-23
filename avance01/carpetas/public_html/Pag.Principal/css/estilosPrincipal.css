@@ -22,9 +22,7 @@ body {
 .header-principal {
     background-color: #000000;
     padding: 15px 50px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
     border-bottom: 1px solid #222;
 }
 
@@ -37,7 +35,7 @@ body {
 }
 
 .logo-nav {
-    height: 180px; /* Ajusta según el tamaño de tu logo */
+    height: 80px; 
 }
 
 .menu-nav ul {
@@ -112,10 +110,15 @@ body {
     color: #fff;
 }
 
-.btn-principal:hover { background-color: #fff; }
-.btn-secundario:hover { background-color: #fff; color: #000; }
+.btn-principal:hover {
+    background-color: #fff;
+}
+.btn-secundario:hover {
+    background-color: #fff;
+    color: #000;
+}
 
-/* Grid de Productos/Categorías */
+
 .categorias-destacadas {
     max-width: 1200px;
     margin: 60px auto;
@@ -126,20 +129,18 @@ body {
 .categorias-destacadas h2 {
     margin-bottom: 40px;
     font-size: 32px;
+    color: #000000;
 }
 
-.grid-categorias {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.grid-categorias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    flex-wrap: wrap;
 }
 
-.tarjeta-categoria {
-    background-color: #111;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #222;
-}
+
 
 .tarjeta-categoria img {
     max-width: 100%;
@@ -167,4 +168,237 @@ body {
 .enlaces-footer a {
     color: #999;
     text-decoration: none;
+}
+
+
+.tarjeta-categoria button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #33ff99;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tarjeta-categoria button:hover{
+    background: #3AB397;
+    transform: scale(1.03);
+}
+
+.btn-enlace{
+    display: inline-block;
+    margin-top: 5px;
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-enlace:hover{
+    color: white;
+}
+
+.tarjeta-categoria h2{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+.tarjeta-categoria h3{
+    color:  white;
+    font-size: 26px;
+    margin: 10px 0;
+}
+.tarjeta-categoria{
+    background: #111;
+    width: 260px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.tarjeta-categoria:hover{
+    transform: translateY(-10px);
+   
+    box-shadow: 0px 10px 40px rgba(0,255,136,0.7);
+}
+
+
+.tarjeta-categoria img{
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    border-radius: 15px;
+    background-color: white;
+    padding: 5px;
+}
+
+.tarjeta-categoria:hover{
+    transform: scale(1.1,1.1);
+}
+
+@media (max-width:1400px){
+    body{
+        background-color:#388C4B;
+    }
+    .tarjeta-categoria img {
+        width: 220px;
+        height: 220px;
+        border-radius: 10px;
+    }
+}
+
+@media (min-width:1000px){
+    body{
+        background-color:#B8E1D4;
+    }
+}
+
+/* modificaciones del video como fondo del cabezal*/
+
+.hero-section {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* VIDEO COMO FONDO */
+.video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Oscurecer el video */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 0;
+}
+
+/*colocarcion del botton para el audio*/
+
+.contenido-hero {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-audio-icon {
+    position: fixed; 
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 999; 
+}
+.btn-audio-icon ion-icon {
+    font-size: 28px;
+    color: #00ff88;
+}
+
+.btn-audio-icon:hover {
+    background: #00ff88;
+}
+
+.btn-audio-icon:hover ion-icon {
+    color: #000;
+}
+
+/* Agregar iconos de redes sociales*/
+.footer-principal {
+    background-color: #000;
+    padding: 50px 20px 20px;
+    color: #ccc;
+}
+
+.contenido-footer {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+/*color para cada icono de red social*/
+/* Facebook */
+.redes-sociales a:nth-child(1):hover {
+    color: #1877f2;
+}
+
+/* Instagram */
+.redes-sociales a:nth-child(2):hover {
+    color: #e4405f;
+}
+
+/* TikTok */
+.redes-sociales a:nth-child(3):hover {
+    color: #ffffff;
+}
+
+/* Redes sociales */
+.redes-sociales a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 26px;
+    color: #999;
+    transition: 0.3s;
+}
+
+.redes-sociales a:hover {
+    color: #00ff88;
+    transform: scale(1.2);
+}
+
+/* Línea final */
+.copy {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #666;
 }

@@ -3,14 +3,16 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
 -->
+
 <html>
     <head>
         <title>Urban Athletics - Tienda de Ropa Dpeortiva</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/estilosPrincipal.css" rel="stylesheet" type="text/css"/>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <link rel="icon" href="imagen/urban Athletics.png" type="image/png">
+        <link href="css/estilosPrincipal.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header class="header-principal">
@@ -23,14 +25,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="../tabla_tallas/index.html">Guía de Tallas</a></li>
-                        <li><a href="../Formulario de Recomendaciones/index.html">Libro de Reclamos</a></li>
                         <li><a href="../Formulario_InicioSesión/index.html" class="btn-login">Mi Cuenta</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        
+
         <main id="inicio" class="hero-section">
+            <!-- se agrega el video -->
+            <video id="videoHero" autoplay muted loop playsinline class="video-bg">
+                <source src="video/video Deportivos.mp4" type="video/mp4">
+                Your browser does not support the <code>video</code> tag.
+
+            </video>
+
             <div class="contenido-hero">
                 <h1>URBAN ATHLETICS</h1>
                 <p>Eleva tu rendimiento con el mejor estilo urbano y deportivo.</p>
@@ -38,37 +46,131 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     <a href="../tabla_descuento/index.html" class="btn-principal">Ver Descuentos</a>
                     <a href="../Formulario_InicioSesión/public_html/index.html" class="btn-secundario">Regístrate</a>
                 </div>
+                <!-- aqui se agrega el icono del botton -->
+                <button id="btnAudio" class="btn-audio-icon">
+                    <ion-icon name="volume-mute-outline" id="iconAudio"></ion-icon>
+                </button>
             </div>
         </main>
-        
+
         <section class="categorias-destacadas">
-            <h2>Nuestras Prendas</h2>
+            <h2>NUESTRAS PRENDAS</h2>
             <div class="grid-categorias">
                 <div class="tarjeta-categoria">
-                    <img src="imagen/polo negro.png" alt="Polos"/>
-                    <h3>Polos</h3>
+                    <img src="imagen/polo negro.png" alt="POLOS"/>
+                    <h3>POLOS</h3>
+
+                    <h2>S/ 89.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
                 </div>
                 <div class="tarjeta-categoria">
-                    <img src="imagen/casaca.png" alt=""/>
-                    <h3>Casaca</h3>
+                    <img src="imagen/casaca.png" alt="CASACA"/>
+                    <h3>CASACAS</h3>
+                    <h2>S/ 89.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
                 </div>
                 <div class="tarjeta-categoria">
-                    <img src="imagen/short.png" alt=""/>
-                    <h3>Joggers</h3>
+                    <img src="imagen/short.png" alt="SHORT"/>
+                    <h3>JOGGERS</h3>
+                    <h2>S/ 89.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
+                </div>
+                <div class="tarjeta-categoria">
+                    <img src="imagen/polo negro.png" alt="POLOS"/>
+                    <h3>POLOS</h3>
+                    <h2>S/ 89.90</h2>
+                    <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
+                </div>
+                <div class="tarjeta-categoria">
+                    <img src="imagen/casaca.png" alt="CASACA"/>
+                    <h3>CASACAS</h3>
+
+                    <h2>S/ 89.90</h2>
+                    <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
+                </div>
+                <div class="tarjeta-categoria">
+                    <img src="imagen/short.png" alt="SHORT"/>
+                    <h3>JOGGERS</h3>
+
+                    <h2>S/ 89.90</h2>
+                    <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
+                </div>
+                <div class="tarjeta-categoria">
+                    <img src="imagen/polo negro.png" alt="POLOS"/>
+                    <h3>POLOS</h3>
+
+                    <h2>S/ 89.90</h2>
+                    <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
+                </div>
+                <div class="tarjeta-categoria">
+                    <img src="imagen/casaca.png" alt="CASACA"/>
+                    <h3>CASACAS</h3>
+                    <h2>S/ 89.90</h2>
+                    <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
+                </div>
+                <div class="tarjeta-categoria">
+                    <img src="imagen/short.png" alt="SHORT"/>
+                    <h3>JOGGERS</h3>
+
+                    <h2>S/ 89.90</h2>
+                    <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
+                    <button>Agregar</button> 
                 </div>
             </div>
         </section>
-        
-        <footer class="footer-principal">
-            <div class="contenido-footer">
-                <p>&copy; 2026 Urban Athletics. Todos los derechos reservados. Lima, Perú.</p>
-                <div class="enlaces-footer">
-                    <a href="../Formulario_sugerencias/index.html">Contáctanos</a>
-                </div>
+
+<footer class="footer-principal">
+    <div class="contenido-footer">
+
+        <div class="footer-col">
+            <h3>Urban Athletics</h3>
+            <p>Ropa deportiva urbana para elevar tu estilo y rendimiento.</p>
+        </div>
+
+      
+
+        <div class="footer-col">
+            <h4>Soporte</h4>
+            <a href="../Formulario_sugerencias/index.html">Contáctanos</a>
+            <a href="../Formulario de Recomendaciones/index.html">Libro de Reclamos</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Síguenos</h4>
+            <div class="redes-sociales">
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a>
             </div>
-        </footer>
+        </div>
+
+    </div>
+
+    <p class="copy">&copy; 2026 Urban Athletics | Lima, Perú</p>
+</footer>
+        <script>
+            const video = document.getElementById("videoHero");
+            const btn = document.getElementById("btnAudio");
+            const icon = document.getElementById("iconAudio");
+
+            btn.addEventListener("click", () => {
+                if (video.muted) {
+                    video.muted = false;
+                    video.play();
+                    icon.setAttribute("name", "volume-high-outline");
+                } else {
+                    video.muted = true;
+                    icon.setAttribute("name", "volume-mute-outline");
+                }
+            });
+        </script>
     </body>
 </html>
