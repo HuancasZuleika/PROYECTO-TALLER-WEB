@@ -182,7 +182,7 @@ section:target {
 }
 @media (max-width: 600px) {
   .botones {
-    grid-template-columns: 1fr; /* botones en columna */
+    grid-template-columns: 1fr; 
   }
 
   .botones a {
