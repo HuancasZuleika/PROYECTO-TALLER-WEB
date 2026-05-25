@@ -84,8 +84,8 @@ body {
 }
 
 .contenido-hero h1 {
-    font-family: "Changa One", sans-serif;
-    font-size: 50px;
+    
+    font-size: 70px;
     letter-spacing: 4px;
     margin-bottom: 10px;
 }
@@ -135,7 +135,7 @@ body {
 .categorias-destacadas h2 {
     font-family: "Public Sans", sans-serif;
     margin-bottom: 40px;
-    font-size: 32px;
+    font-size: 50px;
     color: #000000;
 }
 
