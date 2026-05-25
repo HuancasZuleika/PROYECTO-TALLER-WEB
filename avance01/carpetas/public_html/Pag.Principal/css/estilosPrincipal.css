@@ -6,6 +6,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Created on : 20 may. 2026, 8:22:28 p. m.
     Author     : jharleth
 */
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -79,6 +84,7 @@ body {
 }
 
 .contenido-hero h1 {
+    font-family: "Changa One", sans-serif;
     font-size: 50px;
     letter-spacing: 4px;
     margin-bottom: 10px;
@@ -127,6 +133,7 @@ body {
 }
 
 .categorias-destacadas h2 {
+    font-family: "Public Sans", sans-serif;
     margin-bottom: 40px;
     font-size: 32px;
     color: #000000;
