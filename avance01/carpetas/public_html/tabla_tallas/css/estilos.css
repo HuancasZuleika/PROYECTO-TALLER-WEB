@@ -6,9 +6,87 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Created on : 19 abr. 2026, 2:36:16 p. m.
     Author     : User
 */
-.tabla_tallas_polo, .tabla_tallas_sudadera{
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html, body{
+    width:100%;
+    min-height:100%;
+    overflow-x:hidden;
+    background-color:black;
+    font-family:'Poppins', sans-serif;
+}
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:60px;
+    background-color:#00ff88;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+header h1{
+    margin:0;
+    font-size:28px;
+    color:black;
+}
+.botones {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    width:100%;
+    margin-top:60px;
+}
+
+.botones a{
+    padding:20px;
+    font-size:18px;
+    font-weight:600;
+    border:none;
+    border-radius:0;
+    background:black;
+    color:white;
+    text-decoration: none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.botones a:hover{
+    background:#00ff88;
+    color: black
+}
+
+.botones a:not(:last-child){
+    border-right:2px solid #00ff88;
+}
+.contenedor {
+  display: flex;             
+  justify-content: center;    
+  align-items: flex-start;    
+  gap: 40px;                  
+  margin: 20px auto;
+  max-width: 1000px;
+}
+.contenedor img {
+  width: 400px;     
+  height: 400px;    
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  animation: aparecer 1s ease-in-out;
+  margin-right: 60px;
+}
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.tabla_tallas_jogger, .tabla_tallas_leggings, .tabla_tallas_polo, .tabla_tallas_sudadera {
     border: 1px solid #3AB397;
-    width: 30%;
     margin: auto;
     background-color:white;
     border-radius: 5px;
@@ -18,49 +96,118 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     line-height:24px;
     text-align: center;
     font-family: Arial;
+    animation: aparecer 1s ease-in-out;
+      width: 60%;             
+  table-layout: fixed;      
+  border-collapse: collapse;
 }
-.tabla_tallas_jogger, .tabla_tallas_leggings {
-    border: 1px solid #3AB397;
-    width: 40%;
-    margin: auto;
-    background-color:white;
-    border-radius: 5px;
-    border-collapse: collapse;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    line-height:24px;
+
+table td:hover {
+  outline: none; 
+  box-shadow: inset 2px 2px 5px #999, inset -2px -2px 5px #fff;
+}
+section {
+  display: none;
+  opacity:0;
+  transition: opacity 0.5s ease-in-out;
+}
+section:target {
+  display: block;
+  opacity:1
+}
+.footer-principal {
+    background-color: #000;
     text-align: center;
-    font-family: Arial;
+    padding: 30px;
+    border-top: 1px solid #222;
+    font-size: 14px;
+    color: #666;
+}
+.footer-principal {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 10px;
 }
 
-.tabla_tallas_polo td, .tabla_tallas_sudadera td, .tabla_tallas_jogger td, .tabla_tallas_leggings td{
-    border: 1px solid #3AB397;
-}
-.tabla_tallas_polo img{
-    width: 150px;
-    height: 150px;
-}
-.tabla_tallas_sudadera img{
-    width: 200px;
-    height: 150px;
-}
-.tabla_tallas_jogger img{
-    width: 150px;
-    height: 200px
-}
-.tabla_tallas_leggings img{
-    width: 90px;
-    height: 200px
+.contenido-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;                             
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.tabla_tallas_polo tbody tr:nth-child(even):hover,
-.tabla_tallas_leggings tbody tr:nth-child(even):hover,
-.tabla_tallas_jogger tbody tr:nth-child(even):hover,
-.tabla_tallas_sudadera tbody tr:nth-child(even):hover{
-  background-color: #3AB397}
+.footer-col h3, .footer-col h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
 
-.tabla_tallas_polo tbody tr:nth-child(1),
-.tabla_tallas_jogger tbody tr:nth-child(1),
-.tabla_tallas_leggings tbody tr:nth-child(1),
-.tabla_tallas_sudadera tbody tr:nth-child(1){
- font-weight: bold}
+.footer-col p,
+.footer-col a {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.footer-col a:hover {
+  color: #3AB397; 
+}
+.redes-sociales {
+  display: flex;          
+  gap: 15px;             
+  justify-content: center; 
+}
+.redes-sociales a {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #fff;
+  display: inline-block;          
+  gap: 15px;             
+  justify-content: flex-start; 
+}
+
+.redes-sociales a:hover {
+  color: #3AB397;
+}
+
+.copy {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #aaa;
+}
+@media (max-width: 600px) {
+  .botones {
+    grid-template-columns: 1fr; /* botones en columna */
+  }
+
+  .botones a {
+    text-align: center;
+    border-right: none;
+    border-bottom: 2px solid #00ff88;
+  }
+
+  .contenedor {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contenedor img {
+    width: 100px;
+    height: auto;
+  }
+
+  .tabla_tallas_jogger, .tabla_tallas_leggings, 
+  .tabla_tallas_polo, .tabla_tallas_sudadera {
+    width: 90%; 
+  }
+
+  .contenido-footer {
+    grid-template-columns: 1fr; 
+    text-align: center;
+  }
+}
