@@ -6,6 +6,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Created on : 20 may. 2026, 8:22:28 p. m.
     Author     : jharleth
 */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -81,7 +83,8 @@ body {
 }
 
 .contenido-hero h1 {
-    font-size: 50px;
+    font-family: "Changa One", sans-serif;
+    font-size: 65px;
     letter-spacing: 4px;
     margin-bottom: 10px;
 }
@@ -124,8 +127,9 @@ body {
 }
 
 .categorias-destacadas h2 {
+    font-family: "Space Grotesk", sans-serif;
     margin-bottom: 40px;
-    font-size: 32px;
+    font-size: 55px;
 }
 
 .grid-categorias {
