@@ -1,0 +1,238 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 17 jun. 2026, 6:56:59 p. m.
+    Author     : sayuri
+*/
+
+/* ===== SECCIÓN CARRITO ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* Barra superior */
+.progreso-compra{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    padding:30px;
+    background:white;
+    font-size:15px;
+}
+
+.activo{
+    font-weight:bold;
+    color:black;
+}
+
+/* Contenedor principal */
+.contenedor-carrito{
+    width:90%;
+    max-width:1400px;
+    margin:30px auto;
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+}
+
+/* Columna izquierda */
+.productos-carrito{
+    flex:2;
+}
+
+.productos-carrito h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.mensaje-cupon{
+    background:#fff4e5;
+    color:#b76e00;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.producto{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.producto img{
+    width:140px;
+    height:140px;
+    object-fit:contain;
+    background:white;
+}
+
+.detalle-producto{
+    flex:1;
+}
+
+.detalle-producto h3{
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.color{
+    color:#777;
+    margin-bottom:10px;
+}
+
+.precio{
+    font-size:24px;
+    font-weight:bold;
+    color:black;
+}
+
+/* Resumen */
+.resumen{
+    width:350px;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    position:sticky;
+    top:20px;
+}
+
+.resumen h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #111;
+}
+
+.resumen h3 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.encabezado-producto {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Botón Eliminar estilo Shein */
+.btn-eliminar {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 5px;
+}
+
+.btn-eliminar:hover {
+    color: #ff4d4f; /* Se vuelve rojo sutil al pasar el mouse */
+}
+
+/* Ajuste responsive para el encabezado del producto */
+@media(max-width:900px){
+    .encabezado-producto {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+.fila{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+#total-carrito{
+    font-size:28px;
+}
+
+.btn-pagar{
+    width:100%;
+    border:none;
+    background:black;
+    color:white;
+    padding:16px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.btn-pagar:hover{
+    background:#333;
+}
+
+.texto-info{
+    color:#666;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.metodos-pago{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.metodos-pago img{
+    width:60px;
+    height:auto;
+}
+
+/* Responsive */
+@media(max-width:900px){
+
+    .contenedor-carrito{
+        flex-direction:column;
+    }
+
+    .resumen{
+        width:100%;
+    }
+
+    .producto{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+
+.carrito-vacio{
+    background: white;
+    padding: 50px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.carrito-vacio h2{
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.carrito-vacio p{
+    color: #777;
+}
