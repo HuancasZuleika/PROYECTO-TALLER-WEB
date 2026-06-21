@@ -80,6 +80,7 @@ header h1{
   animation: aparecer 1s ease-in-out;
   margin-right: 60px;
 }
+
 @keyframes aparecer {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
@@ -180,6 +181,7 @@ section:target {
   font-size: 12px;
   color: #aaa;
 }
+
 @media (max-width: 600px) {
   .botones {
     grid-template-columns: 1fr; 
@@ -210,4 +212,102 @@ section:target {
     grid-template-columns: 1fr; 
     text-align: center;
   }
+  
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 2000; 
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7); 
+  backdrop-filter: blur(4px);         
+}
+
+.modal-contenido {
+  background: #111;                 
+  color: #fff;                      
+  margin: 10% auto;
+  padding: 30px 20px;
+  width: 350px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,255,136,0.4); 
+  animation: aparecer 0.4s ease-in-out;
+}
+
+.modal-contenido h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #00ff88;                 
+}
+
+.modal-contenido input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #00ff88;
+  border-radius: 6px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.modal-contenido input::placeholder {
+  color: #aaa;
+}
+
+.modal-contenido button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid #00ff88;
+  border-radius: 6px;
+  background: black;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-contenido button:hover {
+  background: #00ff88;
+  color: black;
+}
+
+#cerrarModal {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+#cerrarModal:hover {
+  color: #00ff88;
+}
+
+#resultadoTalla {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #00ff88;
+}
+#abrirModal {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+  border: 2px solid #00ff88;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,255,136,0.6);
+}
+
+#abrirModal:hover {
+  background-color: #00ff88;
+  color: black;
+  box-shadow: 0 0 20px rgba(0,255,136,0.9);
 }
