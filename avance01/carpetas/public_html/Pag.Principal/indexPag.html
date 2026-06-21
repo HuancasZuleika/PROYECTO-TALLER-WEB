@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <link rel="icon" href="imagen/urban Athletics.png" type="image/png">
         <link href="css/estilosPrincipal.css" rel="stylesheet" type="text/css"/>
-        
+
     </head>
     <body>
         <header class="header-principal">
@@ -25,8 +25,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <nav class="menu-nav">
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="../tabla_tallas/index.html">Guía de Tallas</a></li>
-                        <li><a href="../Formulario_InicioSesión/public_html/index.html" class="btn-login">Mi Cuenta</a></li>
+
+                        <li>
+                            <a href="../Formulario_InicioSesión/public_html/index.html" class="icono-nav">
+                                <ion-icon name="person-outline"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../Formulario carrito/carrito.html" class="icono-nav" style="position: relative;"> 
+                                <ion-icon name="cart-outline"></ion-icon>
+                                <span id="contador-carrito" style="
+                                      position:absolute;
+                                      top:-8px;
+                                      right:-10px;
+                                      background:red;
+                                      color:white;
+                                      font-size:12px;
+                                      border-radius:50%;
+                                      padding:2px 6px;
+                                      ">0</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
             </div>
@@ -51,107 +72,124 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     <ion-icon name="volume-mute-outline" id="iconAudio"></ion-icon>
                 </button>
             </div>
+
         </main>
 
         <section class="categorias-destacadas">
             <h2>NUESTRAS PRENDAS</h2>
             <div class="grid-categorias">
+                <!-- 1. POLOS -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/polo negro.png" alt="POLOS"/>
                     <h3>POLOS</h3>
-
                     <h2>S/ 29.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('POLO ', 29.90, 'imagen/polo negro.png')">
+                        Agregar
+                    </button>
                 </div>
+
+                <!-- 2. CASACAS -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/casaca.png" alt="CASACA"/>
                     <h3>CASACAS</h3>
                     <h2>S/ 89.90</h2>
-                    <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('CASACA CLÁSICA', 89.90, 'imagen/casaca.png')">Agregar</button>
                 </div>
+
+                <!-- 3. JOGGERS -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/short.png" alt="SHORT"/>
                     <h3>JOGGERS</h3>
                     <h2>S/ 35.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('JOGGERS', 35.90, 'imagen/short.png')">Agregar</button>
                 </div>
+
+                <!-- 4. TOP NEGRO -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/TOP NEGRO.png" alt="TOP"/>
-                    <h3>TOP</h3>
+                    <h3>TOP </h3>
                     <h2>S/ 20.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('TOP ', 20.90, 'imagen/TOP NEGRO.png')">Agregar</button>
                 </div>
+
+                <!-- 5. TOP BLANCO -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/top blanco.png" alt="TOP"/>
-                    <h3>TOP</h3>
+                    <h3>TOP </h3>
                     <h2>S/ 25.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('TOP ', 25.90, 'imagen/top blanco.png')">Agregar</button>
                 </div>
+
+                <!-- 6. FALDA SHORT ROSITA -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/falda rosita .png" alt="FALDA SHORT"/>
-                    <h3> FALDA SHORT</h3>
+                    <h3>FALDA SHORT </h3>
                     <h2>S/ 25.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('FALDA SHORT ', 25.90, 'imagen/falda rosita .png')">Agregar</button>
                 </div>
+
+                <!-- 7. FALDA SHORT OSCURA -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/short falda.png" alt="FALDA SHORT"/>
-                    <h3>FALDA SHORT </h3>
+                    <h3>FALDA SHORT</h3>
                     <h2>S/ 35.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('FALDA SHORT ', 35.90, 'imagen/short falda.png')">Agregar</button>
                 </div>
+
+                <!-- 8. CASACAS SEGUNDO MODELO -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/casacas.png" alt="CASACA"/>
                     <h3>CASACAS</h3>
                     <h2>S/ 60.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('CASACA URBANA', 60.90, 'imagen/casacas.png')">Agregar</button>
                 </div>
+
+                <!-- 9. FALDA NEGRA -->
                 <div class="tarjeta-categoria">
                     <img src="imagen/falda negra.png" alt="FALDA SHORT"/>
                     <h3>FALDA SHORT</h3>
                     <h2>S/ 35.90</h2>
                     <a href="tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button>Agregar</button> 
+                    <button onclick="agregarCarrito('FALDA SHORT ', 35.90, 'imagen/falda negra.png')">Agregar</button>
                 </div>
             </div>
         </section>
+        <footer class="footer-principal">
+            <div class="contenido-footer">
 
-<footer class="footer-principal">
-    <div class="contenido-footer">
+                <div class="footer-col">
+                    <h3>Urban Athletics</h3>
+                    <p>Ropa deportiva urbana para elevar tu estilo y rendimiento.</p>
+                </div>
 
-        <div class="footer-col">
-            <h3>Urban Athletics</h3>
-            <p>Ropa deportiva urbana para elevar tu estilo y rendimiento.</p>
-        </div>
 
-      
 
-        <div class="footer-col">
-            <h4>Soporte</h4>
-            <a href="../Formulario contactanos/index.html">Contáctanos</a>
-            <a href="../Formulario de Recomendaciones/index.html">Libro de Reclamos</a>
-        </div>
+                <div class="footer-col">
+                    <h4>Soporte</h4>
+                    <a href="../Formulario contactanos/index.html">Contáctanos</a>
+                    <a href="../Formulario de Recomendaciones/index.html">Libro de Reclamos</a>
+                </div>
 
-        <div class="footer-col">
-            <h4>Síguenos</h4>
-            <div class="redes-sociales">
-                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="redes-sociales">
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
-    </div>
-
-    <p class="copy">&copy; 2026 Urban Athletics | Lima, Perú</p>
-</footer>
+            <p class="copy">&copy; 2026 Urban Athletics | Lima, Perú</p>
+        </footer>
         <script>
             const video = document.getElementById("videoHero");
             const btn = document.getElementById("btnAudio");
@@ -167,6 +205,43 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     icon.setAttribute("name", "volume-mute-outline");
                 }
             });
+
+            function agregarCarrito(nombre, precio, imagen) {
+
+                let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+                let producto = {
+                    nombre: nombre,
+                    precio: precio,
+                    imagen: imagen,
+                    cantidad: 1
+                };
+
+                // CORRECCIÓN: Ahora busca que coincidan Nombre E Imagen para considerarlo el mismo artículo
+                let existe = carrito.find(p => p.nombre === nombre && p.imagen === imagen);
+
+                if (existe) {
+                    existe.cantidad++;
+                } else {
+                    carrito.push(producto);
+                }
+
+                localStorage.setItem("carrito", JSON.stringify(carrito));
+
+                actualizarContador();
+
+                alert(nombre + " agregado al carrito ");
+            }
+
+            function actualizarContador() {
+                let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+                let total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+
+                document.getElementById("contador-carrito").innerText = total;
+            }
+
+            window.onload = actualizarContador;
         </script>
+
     </body>
 </html>

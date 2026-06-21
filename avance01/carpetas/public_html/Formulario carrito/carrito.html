@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="CSS/estilo.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="progreso-compra">
+            <span class="activo">Carrito</span>
+            <span>></span>
+            <span>Procede al pago</span>
+            <span>></span>
+            <span>Pagar</span>
+            <span>></span>
+            <span>Pedido completo</span>
+        </div>
+
+        <div class="contenedor-carrito">
+
+            <!-- Productos -->
+            <div class="productos-carrito">
+
+                <div class="mensaje-cupon">
+                    ¡Válido para obtener cupones después de tu pedido!
+                </div>
+
+                <h2>TODOS LOS ARTÍCULOS</h2>
+
+                <div id="lista-carrito"></div>
+
+            </div>
+
+            <!-- Resumen -->
+            <div class="resumen">
+
+                <h2>Resumen del Pedido</h2>
+
+                <div class="fila">
+                    <span>Precio aproximado:</span>
+                    <strong id="total-carrito">S/0.00</strong>
+                </div>
+
+                <a href="checkout.html" class="btn-pagar" id="btn-pagar" style="display: block; text-align: center; text-decoration: none;">
+                    Pagar ahora (0)
+                </a>
+
+
+                <p class="texto-info">
+                    El código de descuento será aplicado en el siguiente paso.
+                </p>
+
+                <h3>ACEPTAMOS</h3>
+
+                <div class="metodos-pago">
+                    <img src="../Pag.Principal/imagen/visa.png">
+                    <img src="../Pag.Principal/imagen/mastercard.png">
+                    <img src="../Pag.Principal/imagen/yape.png">
+                    <img src="../Pag.Principal/imagen/plin.png">
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            let contenedor = document.getElementById("lista-carrito");
+
+            // Función para renderizar el carrito
+            function renderizarCarrito() {
+                let total = 0;
+                let cantidadTotal = 0;
+                contenedor.innerHTML = ""; // Limpiar contenedor
+
+                if (carrito.length === 0) {
+                    contenedor.innerHTML =
+                            '<div class="carrito-vacio">' +
+                            '<h2>🛒 Tu carrito está vacío</h2>' +
+                            '<p>Agrega productos desde la tienda.</p>' +
+                            '</div>';
+
+                    document.getElementById("total-carrito").innerText = "S/0.00";
+                    document.getElementById("btn-pagar").textContent = "Pagar ahora (" + cantidadTotal + ")";
+                } else {
+                    carrito.forEach((producto, indice) => {
+                        total += producto.precio * producto.cantidad;
+                        cantidadTotal += producto.cantidad;
+
+                        contenedor.innerHTML +=
+                                '<div class="producto">' +
+                                '<img src="../Pag.Principal/imagen/' + producto.imagen.split('/').pop() + '" alt="' + producto.nombre + '">' +
+                                '<div class="detalle-producto">' +
+                                '<div class="encabezado-producto">' +
+                                '<h3>' + producto.nombre + '</h3>' +
+                                '<button class="btn-eliminar" onclick="eliminarProducto(' + indice + ')">' +
+                                '🗑️' +
+                                '</button>' +
+                                '</div>' +
+                                '<div class="color">' +
+                                'Cantidad: ' + producto.cantidad +
+                                '</div>' +
+                                '<p class="precio">' +
+                                'S/' + producto.precio +
+                                '</p>' +
+                                '</div>' +
+                                '</div>';
+                    });
+
+                    document.getElementById("total-carrito").innerText = "S/" + total.toFixed(2);
+                    document.getElementById("btn-pagar").innerText = "Pagar ahora (" + cantidadTotal + ")";
+                }
+            }
+
+            // Función para eliminar el producto por su índice
+            function eliminarProducto(indice) {
+                carrito.splice(indice, 1); // Remueve el producto del array
+                localStorage.setItem("carrito", JSON.stringify(carrito)); // Guarda la nueva lista
+                renderizarCarrito(); // Vuelve a pintar la interfaz
+            }
+
+            // Ejecutar al cargar la página
+            renderizarCarrito();
+        </script>
+
+    </body>
+</html>

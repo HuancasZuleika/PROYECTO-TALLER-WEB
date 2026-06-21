@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="CSS/estilo_checkout.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        
+        <!-- Barra de progreso (Copias la misma de tu carrito) -->
+    <div class="progreso-compra">
+        <span>Carrito</span>
+        <span>></span>
+        <span class="activo">Procede al pago</span>
+        <span>></span>
+        <span>Pagar</span>
+        <span>></span>
+        <span>Pedido completo</span>
+    </div>
+        
+
+    <div class="contenedor-carrito">
+        
+        <!-- Columna Izquierda: Formulario de Dirección -->
+        
+          <div class="resumen">
+            <h2>Resumen Del Pedido</h2>
+            <div class="fila-resumen"><span>Precio aproximado:</span> <span id="subtotal-checkout">S/0.00</span></div>
+            <div class="fila-resumen"><span>Precio de envío:</span> <span class="gratis">Gratuito</span></div>
+            <hr>
+            <div class="fila-resumen total"><strong>Total:</strong> <strong id="total-checkout">S/0.00</strong></div>
+            
+            <button class="btn-pagar" id="btn-continuar">CONTINUAR</button>
+        </div>
+        <div class="productos-carrito">
+            <div class="formulario-envio">
+                <h2>Dirección de envío</h2>
+                
+                
+                <div class="grupo-formulario">
+                    <label>Ubicación*</label>
+                    <select id="pais"><option>Peru</option></select>
+                </div>
+
+                <div class="fila-doble">
+                    <div class="grupo-formulario">
+                        <label>Nombre*</label>
+                        <input type="text" id="nombre-envio" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label>Apellido*</label>
+                        <input type="text" id="apellido-envio" required>
+                    </div>
+                </div>
+
+                <div class="fila-telefono">
+                    <span class="prefijo">PE +51</span>
+                    <input type="tel" id="telefono" placeholder="Número de Teléfono*" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label>Dirección*</label>
+                    <textarea id="direccion" placeholder="e.g. Av. Arequipa 123" required></textarea>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label>Apartamento, suite, unidad, etc. (opcional)</label>
+                    <input type="text" id="referencia" placeholder="e.g. Miraflores, Apt 202">
+                </div>
+
+                <div class="fila-doble">
+                    <div class="grupo-formulario">
+                        <label>Departamento*</label>
+                        <select id="departamento"><option value="">Seleccione...</option></select>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label>Provincia*</label>
+                        <select id="provincia"><option value="">Seleccione...</option></select>
+                    </div>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label>Distrito*</label>
+                    <select id="distrito"><option value="">Seleccione...</option></select>
+                </div>
+          
+
+                <div class="seccion-documento">
+                    <label class="titulo-documento">Tipo de Documento de Identidad*</label>
+                    <div class="opciones-radio">
+                        <label><input type="radio" name="tipoDoc" value="RUC" onchange="cambiarTipoDoc()"> RUC</label>
+                        <label><input type="radio" name="tipoDoc" value="DNI" checked onchange="cambiarTipoDoc()"> DNI</label>
+                    </div>
+
+                    <div class="grupo-formulario contenedor-validacion" id="contenedor-doc">
+                        <label id="label-doc">DNI*</label>
+                        <input type="text" id="numero-documento" placeholder="DNI" oninput="validarDocumento()">
+                        <span id="error-documento" class="mensaje-error">El ID Nacional debe ser un número de 8 dígitos</span>
+                    </div>
+
+                    <p class="texto-aduana">
+                        A solicitud de la aduana de Perú, por favor, coloque con precisión el número de RUC o DNI para el despacho. Para evitar problemas, se recomienda priorizar el RUC. verificar RUC → <a href="https://sunat.gob.pe" target="_blank">haz clic aquí</a>
+                    </p>
+
+                    <div class="opcion-predeterminado">
+                        <label><input type="checkbox" id="predeterminado" checked> Hacer predeterminado</label>
+                    </div>
+                </div>
+
+                <div class="contenedor-btn-guardar">
+                    <button type="button" class="btn-guardar" id="btn-guardar">GUARDAR</button>
+                
+                </div>
+
+            </div> 
+     
+
+      
+
+        
+
+   <script>
+// ==========================================
+// 1. LÓGICA DEL RESUMEN DE COMPRA
+// ==========================================
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+let total = carrito.reduce((acc, p) => acc + (p.precio * p.cantidad), 0);
+
+document.getElementById("subtotal-checkout").innerText = "S/" + total.toFixed(2);
+document.getElementById("total-checkout").innerText = "S/" + total.toFixed(2);
+
+function procesarFormulario() {
+    let nombre = document.getElementById("nombre-envio").value;
+    let direccion = document.getElementById("direccion").value;
+    let dep = document.getElementById("departamento").value;
+    let dist = document.getElementById("distrito").value;
+    
+    let tipoDoc = document.querySelector('input[name="tipoDoc"]:checked').value;
+    let numDoc = document.getElementById("numero-documento").value;
+    let largoEsperado = (tipoDoc === "RUC") ? 11 : 8;
+
+    // Validación
+    if (!nombre || !direccion || !dep || !dist || numDoc.length !== largoEsperado) {
+        // Alerta de error si falta algo
+        Swal.fire({
+            title: "Error",
+            text: "Por favor, completa todos los campos obligatorios (*) y verifica tu documento.",
+            icon: "error"
+        });
+    } else {
+        // Lanzar tu alerta de éxito
+        Swal.fire({
+            title: "GUARDADO",
+            icon: "success",
+            draggable: true
+        }).then((result) => {
+            // Cuando el usuario cierre el alerta, redirigimos
+            if (result.isConfirmed) {
+                
+            }
+        });
+    }
+}
+
+// Escuchadores de eventos para los dos botones
+document.getElementById("btn-continuar").addEventListener("click", procesarFormulario);
+document.getElementById("btn-guardar").addEventListener("click", procesarFormulario);
+
+// Funciones para alternar e inspeccionar RUC / DNI de forma interactiva
+function cambiarTipoDoc() {
+    const tipo = document.querySelector('input[name="tipoDoc"]:checked').value;
+    const label = document.getElementById("label-doc");
+    const input = document.getElementById("numero-documento");
+    const errorSpan = document.getElementById("error-documento");
+
+    input.value = ""; 
+    document.getElementById("contenedor-doc").classList.remove("con-error");
+
+    if (tipo === "RUC") {
+        label.innerText = "RUC*";
+        input.placeholder = "RUC";
+        errorSpan.innerText = "El número de RUC debe ser de 11 dígitos";
+    } else {
+        label.innerText = "DNI*";
+        input.placeholder = "DNI";
+        errorSpan.innerText = "El ID Nacional debe ser un número de 8 dígitos";
+    }
+}
+
+function validarDocumento() {
+    const tipo = document.querySelector('input[name="tipoDoc"]:checked').value;
+    const input = document.getElementById("numero-documento");
+    const contenedor = document.getElementById("contenedor-doc");
+    
+    input.value = input.value.replace(/\D/g, ''); // Evitar el ingreso de letras
+    const longitudRequerida = (tipo === "RUC") ? 11 : 8;
+
+    if (input.value.length > 0 && input.value.length !== longitudRequerida) {
+        contenedor.classList.add("con-error");
+    } else {
+        contenedor.classList.remove("con-error");
+    }
+}
+
+
+// 2. SELECCION DE DEPARTAMENTOS, PROVINCIAS Y DISTRITOS
+
+const ubigeoPeru = {
+    "Lima": {
+        "Lima": ["Miraflores", "San Isidro", "Santiago de Surco", "Lima Cercado", "Puente Piedra", "Los Olivos"],
+        "Callao": ["Callao", "Bellavista", "La Punta", "Ventanilla"],
+        "Cañete": ["San Vicente de Cañete", "Mala", "Asia", "Imperial"]
+    },
+    "Arequipa": {
+        "Arequipa": ["Arequipa", "Cayma", "Yanahuara", "Mollendo"],
+        "Camaná": ["Camaná", "José María Quimper"],
+        "Caylloma": ["Chivay", "Majes"]
+    },
+    "La Libertad": {
+        "Trujillo": ["Trujillo", "Florencia de Mora", "Huanchaco", "Moche"],
+        "Chepén": ["Chepén", "Pacanga"],
+        "Pacasmayo": ["San Pedro de Lloc", "Pacasmayo"]
+    }
+};
+
+const selectDep = document.getElementById("departamento");
+const selectProv = document.getElementById("provincia");
+const selectDist = document.getElementById("distrito");
+
+// 1. Cargar los Departamentos al iniciar la página
+function cargarDepartamentos() {
+    selectDep.innerHTML = '<option value="">Seleccione...</option>';
+    for (let dep in ubigeoPeru) {
+        selectDep.innerHTML += '<option value="' + dep + '">' + dep + '</option>';
+    }
+}
+
+// 2. Evento cuando cambia el Departamento -> Carga Provincias
+selectDep.addEventListener("change", function() {
+    const depSeleccionado = this.value;
+    
+    // Limpiar campos inferiores
+    selectProv.innerHTML = '<option value="">Seleccione...</option>';
+    selectDist.innerHTML = '<option value="">Seleccione...</option>';
+
+    if (depSeleccionado && ubigeoPeru[depSeleccionado]) {
+        for (let prov in ubigeoPeru[depSeleccionado]) {
+            selectProv.innerHTML += '<option value="' + prov + '">' + prov + '</option>';
+        }
+    }
+});
+
+// 3. Evento cuando cambia la Provincia -> Carga Distritos
+selectProv.addEventListener("change", function() {
+    const depSeleccionado = selectDep.value;
+    const provSeleccionada = this.value;
+
+    // Limpiar campo inferior
+    selectDist.innerHTML = '<option value="">Seleccione...</option>';
+
+    if (depSeleccionado && provSeleccionada && ubigeoPeru[depSeleccionado][provSeleccionada]) {
+        const distritos = ubigeoPeru[depSeleccionado][provSeleccionada];
+        distritos.forEach(distrito => {
+            selectDist.innerHTML += '<option value="' + distrito + '">' + distrito + '</option>';
+        });
+    }
+});
+
+// Ejecutar la carga inicial al abrir el archivo
+cargarDepartamentos();
+
+
+// 1. Función solo para GUARDAR (con tu SweetAlert)
+let datosGuardados = false; 
+
+function manejarGuardar() {
+    let nombre = document.getElementById("nombre-envio").value;
+    let direccion = document.getElementById("direccion").value;
+    let numDoc = document.getElementById("numero-documento").value;
+    
+    // Validación de campos obligatorios
+    if (!nombre || !direccion || numDoc === "") {
+        Swal.fire({
+            title: "Error",
+            text: "Por favor, completa los campos obligatorios antes de guardar.",
+            icon: "error"
+        });
+        return; 
+    }
+
+    // Si pasa la validación:
+    datosGuardados = true; // ACTIVAMOS EL INTERRUPTOR
+    Swal.fire({
+        title: "GUARDADO",
+        icon: "success",
+        draggable: true
+    });
+}
+
+function manejarContinuar() {
+    // Verificamos el interruptor
+    if (!datosGuardados) {
+        Swal.fire({
+            title: "Atención",
+            text: "Primero debes guardar tu dirección para poder continuar.",
+            icon: "warning"
+        });
+    } else {
+        // Solo si datosGuardados es true, dejamos pasar
+        window.location.href = "pago.html";
+    }
+}
+
+// Asignación de eventos
+document.getElementById("btn-guardar").addEventListener("click", manejarGuardar);
+document.getElementById("btn-continuar").addEventListener("click", manejarContinuar);
+</script>
+        
+        
+    </body>
+</html>
