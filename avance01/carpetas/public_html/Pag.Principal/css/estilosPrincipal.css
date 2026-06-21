@@ -6,6 +6,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this t
     Created on : 20 may. 2026, 8:22:28 p. m.
     Author     : jharleth
 */
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -24,6 +29,11 @@ body {
     padding: 15px 50px;
 
     border-bottom: 1px solid #222;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .contenedor-nav {
@@ -35,7 +45,7 @@ body {
 }
 
 .logo-nav {
-    height: 100px; 
+    height: 110px; 
 }
 
 .menu-nav ul {
@@ -71,15 +81,19 @@ body {
 
 .hero-section {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../imagenes/img6.png') no-repeat center center/cover;
+    position: relative;
     height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
+    margin-top: 140px;
 }
 
 .contenido-hero h1 {
-    font-size: 50px;
+    
+    font-size: 70px;
     letter-spacing: 4px;
     margin-bottom: 10px;
 }
@@ -127,8 +141,9 @@ body {
 }
 
 .categorias-destacadas h2 {
+    font-family: "Public Sans", sans-serif;
     margin-bottom: 40px;
-    font-size: 32px;
+    font-size: 50px;
     color: #000000;
 }
 
