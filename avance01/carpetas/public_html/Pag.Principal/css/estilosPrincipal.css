@@ -50,9 +50,9 @@ body {
 
 .menu-nav ul {
     display: flex;
-    list-style: none;
-    gap: 25px;
     align-items: center;
+    gap: 30px;
+    list-style: none;
 }
 
 .menu-nav a {
@@ -78,6 +78,24 @@ body {
     background-color: #00ff88;
     color: #000;
 }
+
+
+
+/* Iconos del menú */
+.icono-nav {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.icono-nav:hover {
+    color: #00ff88;
+}
+
+
 
 .hero-section {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../imagenes/img6.png') no-repeat center center/cover;
