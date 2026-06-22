@@ -117,13 +117,9 @@ body {
 }
 
 .contenido-hero p {
-    color: #ccc;
-    box-shadow: 50px;
-    font-size: 16px;
-    line-height: 1.6;          /* Altura de línea para que se lea cómodo */
-    max-width: 800px;          /* Hace que el texto no ocupe todo el ancho y se vea estilizado */
-    margin: auto 25px auto;
-    text-align: justify;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 50px;
 }
 
 .contenido-hero h2{
@@ -338,7 +334,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.1);
     z-index: 0;
 }
 
