@@ -68,11 +68,11 @@ function toggleFavorito(corazon){
         JSON.stringify(favoritos)
     );
 
-    actualizarContador();
+    actualizarContadorCorazon();
 }
 
 /*actualizar corazon*/
-function actualizarContador(){
+function actualizarContadorCorazon(){
 
     let favoritos =
         JSON.parse(localStorage.getItem("favoritos")) || [];
