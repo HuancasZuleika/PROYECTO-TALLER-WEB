@@ -21,7 +21,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <div class="logo-container">
                     <img src="imagen/urban Athletics.png" alt="Urban Athletics Logo" class="logo-nav"/>
                 </div>
+                <div class="contenedor-busqueda">
+                    <input
+                        type="text"
+                        id="buscador"
+                        placeholder="Buscar productos..."
+                        onkeyup="buscarProducto()">
 
+                    <button class="btn-buscar" onclick="buscarProducto()">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </div>
                 <nav class="menu-nav">
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
@@ -45,6 +55,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                                       border-radius:50%;
                                       padding:2px 6px;
                                       ">0</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="#" class="icono-nav favorito-nav" style="position: relative;">
+                                <ion-icon name="heart-outline"></ion-icon>
+
+                                <span id="contador-favoritos">
+                                    0
+                                </span>
                             </a>
                         </li>
 
@@ -81,9 +100,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             </div>
 
         </main>
-        
+
         <h2 class="encabezado-descuento">CONSIGUE HASTA UN 20% DE DESCUENTO!!! </h2>
-               
+
         <section class="carrusel">
             <div class="carrusel-descuentos">
                 <div class="product">
@@ -94,16 +113,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 </div>
                 <div class="product">
                     <img src="img-desc/img2.jpg" alt=""/>
-                        <button onclick="agregarCarrito('CASACA ROSADA', 20.90, 'img-desc/img2.jpg')" class="boton-comprar">
-                            Agregar
-                        </button>
+                    <button onclick="agregarCarrito('CASACA ROSADA', 20.90, 'img-desc/img2.jpg')" class="boton-comprar">
+                        Agregar
+                    </button>
                 </div>
                 <div class="product">
                     <img src="img-desc/img3.jpg" alt=""/>
-                        <button onclick="agregarCarrito('POLO GUINDA', 20.00, 'img-desc/img3.jpg')" class="boton-comprar">
-                            Agregar
-                        </button>
-                   
+                    <button onclick="agregarCarrito('POLO GUINDA', 20.00, 'img-desc/img3.jpg')" class="boton-comprar">
+                        Agregar
+                    </button>
+
                 </div>
                 <div class="product">
                     <img src="img-desc/img4.jpg" alt=""/>
@@ -142,7 +161,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     </button>
                 </div> 
             </div>
-                <!-- duplicamos -->
+            <!-- duplicamos -->
             <div aria-hidden="true" class="carrusel-descuentos">
                 <div class="product">
                     <img src="img-desc/img1.jpg" alt=""/>
@@ -206,7 +225,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             <div class="grid-categorias">
                 <!-- 1. POLOS -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/polo negro.png" alt="POLOS"/>
+                    </div>
                     <h3>POLOS</h3>
                     <h2>S/ 29.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -217,7 +241,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <!-- 2. CASACAS -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/casaca.png" alt="CASACA"/>
+                    </div>
                     <h3>CASACAS</h3>
                     <h2>S/ 89.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -226,7 +255,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <!-- 3. JOGGERS -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/short.png" alt="SHORT"/>
+                    </div>
                     <h3>JOGGERS</h3>
                     <h2>S/ 35.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -235,7 +269,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <!-- 4. TOP NEGRO -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/TOP NEGRO.png" alt="TOP"/>
+                    </div>
                     <h3>TOP </h3>
                     <h2>S/ 20.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -244,7 +283,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <!-- 5. TOP BLANCO -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/top blanco.png" alt="TOP"/>
+                    </div>
                     <h3>TOP </h3>
                     <h2>S/ 25.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -253,7 +297,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <!-- 6. FALDA SHORT ROSITA -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/falda rosita .png" alt="FALDA SHORT"/>
+                    </div>
                     <h3>FALDA SHORT </h3>
                     <h2>S/ 25.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -262,7 +311,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <!-- 7. FALDA SHORT OSCURA -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/short falda.png" alt="FALDA SHORT"/>
+                    </div>
                     <h3>FALDA SHORT</h3>
                     <h2>S/ 35.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -271,7 +325,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <!-- 8. CASACAS SEGUNDO MODELO -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/casacas.png" alt="CASACA"/>
+                    </div>
                     <h3>CASACAS</h3>
                     <h2>S/ 60.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -280,46 +339,76 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <!-- 9. FALDA NEGRA -->
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/falda negra.png" alt="FALDA SHORT"/>
+                    </div>
                     <h3>FALDA SHORT</h3>
                     <h2>S/ 35.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
                     <button onclick="agregarCarrito('FALDA SHORT ', 35.90, 'imagen/falda negra.png')">Agregar</button>
                 </div>
-                
-                 <div class="tarjeta-categoria">
+
+                <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/Pantalones Cortos.png" alt="Pantalones cortos"/>
+                    </div>
                     <h3>PANTALONES CORTOS </h3>
                     <h2>S/ 35.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
                     <button onclick="agregarCarrito('PANTALONES CORTOS ', 23.00, 'imagen/Pantalones Cortos.png')">Agregar</button>
-               </div>
-                   <div class="tarjeta-categoria">
+                </div>
+                <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/leggings.png" alt="LEGGINGS"/>
+                    </div>
                     <h3> LEGGINGS</h3>
                     <h2>S/ 40.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
                     <button onclick="agregarCarrito('LEGGINGS ', 40.90, 'imagen/leggings.png')">Agregar</button>
-               
-                 </div>
-                
-                   <div class="tarjeta-categoria">
+
+                </div>
+
+                <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/sosten.png" alt="Sostén de yoga"/>
+                    </div>
                     <h3>SOSTÉN DE YOGA </h3>
                     <h2>S/ 20.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
                     <button onclick="agregarCarrito('SOSTÉN DE YOGA ', 20.90, 'imagen/sosten.png')">Agregar</button>
                 </div>
-                  <div class="tarjeta-categoria">
+                <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/img1.jpg" alt="Chaqueta deportiva"/>
+                    </div>
                     <h3>CHAQUETA DEPORTIVA </h3>
                     <h2>S/ 50.00</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
                     <button onclick="agregarCarrito('CHAQUETA DEPORTIVA ', 50.00, 'imagen/img1.jpg')">Agregar</button>
                 </div>
 
-                 <div class="tarjeta-categoria">
+                <div class="tarjeta-categoria">ç
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/img5.jpg" alt="Sugetador deportivo"/>
+                    </div>
                     <h3>SUGETADOR DEPORTIVO </h3>
                     <h2>S/ 20.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
@@ -327,13 +416,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 </div>
 
                 <div class="tarjeta-categoria">
+                    <div class="contenedor-imagen">
+                        <div class="favorito" onclick="toggleFavorito(this)">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </div>
                     <img src="imagen/img7.jpg" alt="Camisa deportiva"/>
+                    </div>
                     <h3>CAMISA DEPORTIVA </h3>
                     <h2>S/ 32.90</h2>
                     <a href="../tabla_tallas/index.html" class="btn-enlace">Ver Tallas</a>
-                    <button onclick="agregarCarrito('CAMISA DEPORTIVA', 32.90,'imagen/img7.jpg')">Agregar</button>
+                    <button onclick="agregarCarrito('CAMISA DEPORTIVA', 32.90, 'imagen/img7.jpg')">Agregar</button>
                 </div>
-                                
+
             </div>
         </section>
         <footer class="footer-principal">
@@ -417,6 +511,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
             window.onload = actualizarContador;
         </script>
-
+        <script src="JS/app.js" type="text/javascript"></script>
     </body>
 </html>
