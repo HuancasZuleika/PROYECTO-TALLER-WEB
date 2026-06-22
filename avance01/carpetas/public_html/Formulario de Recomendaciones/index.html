@@ -10,7 +10,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="../Pag.Principal/imagen/urban Athletics.png" type="image/png">
         <link href="CSS/estilo.css" rel="stylesheet">
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
 
@@ -28,27 +28,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                         <legend>Libro de Reclamos</legend>
 
                         <div class="grupo">
-                            <input type="text" required>
+                            <input type="text" id="nombre" required>
                             <label>Nombre completo</label>
                         </div>
 
                         <div class="grupo">
-                            <input type="text" required>
+                            <input type="text" id="dni" required>
                             <label>DNI</label>
                         </div>
 
                         <div class="grupo">
-                            <input type="email" required>
+                            <input type="email" id="correo" required>
                             <label>Correo</label>
                         </div>
 
                         <div class="grupo">
-                            <input type="text" required>
+                            <input type="text" id="celular" required>
                             <label>Celular</label>
                         </div>
 
                         <div class="grupo">
-                            <textarea required></textarea>
+                            <textarea id="detalle" required></textarea>
                             <label>Detalle del reclamo</label>
                         </div>
 
@@ -58,13 +58,62 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                             <span>Acepto términos</span>
                         </div>
 
-                        <button>Enviar reclamo</button>
+                        <button type="button" id="btnEnviar">Enviar reclamo</button>
 
                     </fieldset>
                 </form>
             </div>
 
         </div>
+        <script>
+            document.getElementById("btnEnviar").addEventListener("click", function () {
 
+                const nombre = document.getElementById("nombre").value.trim();
+                const dni = document.getElementById("dni").value.trim();
+                const correo = document.getElementById("correo").value.trim();
+                const celular = document.getElementById("celular").value.trim();
+                const detalle = document.getElementById("detalle").value.trim();
+
+                const inputs = [nombre, dni, correo, celular, detalle];
+                let valido = inputs.every(i => i !== "");
+
+                if (!valido) {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Campos incompletos",
+                        text: "Por favor completa todos los campos"
+                    });
+                    return;
+                }
+
+                // 🔥 GUARDAR EN LOCALSTORAGE
+                let reclamos = JSON.parse(localStorage.getItem("reclamos")) || [];
+
+                let nuevoReclamo = {
+                    nombre,
+                    dni,
+                    correo,
+                    celular,
+                    detalle,
+                    fecha: new Date().toLocaleString()
+                };
+
+                reclamos.push(nuevoReclamo);
+
+                localStorage.setItem("reclamos", JSON.stringify(reclamos));
+
+                Swal.fire({
+                    title: "Le informaremos de su reclamo",
+                    text: "Su reclamo ha sido registrado correctamente.",
+                    imageUrl: "img/recomendaciones.png",
+                    imageWidth: 400,
+                    imageHeight: 200
+                });
+
+                // limpiar formulario
+                document.querySelector("form").reset();
+
+            });
+        </script>
     </body>
 </html>
