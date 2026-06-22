@@ -427,6 +427,7 @@ body {
     background-color: #1FC288;
     color: white
 }
+
 @keyframes animacion{
     0%{
         transform: translateX(0);
