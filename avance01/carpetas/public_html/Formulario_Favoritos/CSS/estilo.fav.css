@@ -1,0 +1,532 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 11 jul. 2026, 2:23:45 a. m.
+    Author     : jharleth
+*/
+
+/*mejorando la pag favo*/
+/* =============================== */
+/*      PAGINA DE FAVORITOS        */
+/* =============================== */
+
+
+body{
+    background:#f5f5f5;
+}
+
+
+/* Contenedor principal */
+
+.contenedor-favoritos{
+
+    max-width:1200px;
+    margin:120px auto 50px;
+    padding:20px;
+
+}
+
+
+/* Titulo */
+
+.contenedor-favoritos h1{
+
+    text-align:center;
+    font-size:48px;
+    font-weight:700;
+    letter-spacing:1px;
+    margin-bottom:15px;
+    color:#111;
+
+}
+
+
+/* Cantidad */
+
+#cantidadFavoritos{
+
+    text-align:center;
+    color:#777;
+    font-size:20px;
+    margin-bottom:30px;
+
+}
+
+
+
+/* Botones principales */
+
+#btnVaciarFavoritos,
+#btnMoverCarrito{
+
+    border:none;
+    padding:13px 25px;
+    border-radius:30px;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin:10px;
+
+    transition:.3s;
+
+}
+
+
+#btnVaciarFavoritos{
+
+    background:#111;
+    color:white;
+
+}
+
+
+#btnMoverCarrito{
+
+    background:#2df58a;
+    color:white;
+
+}
+
+
+
+#btnVaciarFavoritos:hover,
+#btnMoverCarrito:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* Lista de productos */
+
+#listaFavoritos{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    margin-top:40px;
+
+}
+
+
+
+/* Tarjeta producto */
+
+.producto-favorito{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+
+
+.producto-favorito:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.20);
+
+}
+
+
+
+/* Imagen producto */
+
+.producto-favorito img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:contain;
+
+    background:#f5f5f5;
+
+    border-radius:15px;
+    transition:.35s;
+}
+
+.producto-favorito:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+/* Información */
+
+.info-favorito{
+
+    margin-top:20px;
+
+}
+
+
+.info-favorito h2{
+
+    font-size:22px;
+
+    color:#111;
+
+    margin-bottom:10px;
+
+}
+
+
+.info-favorito p{
+
+    font-size:28px;
+
+    color:#19b36b;
+
+    font-weight:bold;
+
+    margin:18px 0;
+
+}
+
+
+
+/* Botones dentro del producto */
+
+.info-favorito button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+.info-favorito button:first-of-type{
+
+    background:#111;
+
+    color:white;
+
+}
+
+
+
+.info-favorito button:last-of-type{
+
+    background:#ff4d4d;
+
+    color:white;
+
+}
+
+
+
+.info-favorito button:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+
+/* Cuando no hay favoritos */
+
+.favoritos-vacio{
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+
+.icono-vacio{
+
+    font-size:90px;
+
+    color:#ddd;
+
+    margin-bottom:20px;
+    color:#ff4fa3;
+
+    animation:latido 1s infinite;
+
+}
+
+@keyframes latido{
+
+    0%{transform:scale(1);}
+
+    50%{transform:scale(1.2);}
+
+    100%{transform:scale(1);}
+
+}
+
+
+.favoritos-vacio h2{
+
+    color:#333;
+
+}
+
+
+.favoritos-vacio p{
+
+    color:#777;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.btn-volver{
+
+    display:inline-block;
+
+    background:#111;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 30px;
+
+    border-radius:30px;
+
+    transition:.10s;
+    
+    font-weight:bold;
+
+    font-size:17px;
+
+}
+
+
+.btn-volver:hover{
+
+    background:#2df58a;
+    transform:translateY(-9px);
+
+
+}
+
+/*=============================
+        HEADER FAVORITOS
+=============================*/
+
+.header-favoritos{
+
+    background:white;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 50px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.logo-favoritos h2{
+
+    color:#111;
+
+    font-size:28px;
+
+    margin:0;
+
+}
+
+.logo-favoritos span{
+
+    color:#888;
+
+    font-size:15px;
+
+}
+
+.btn-seguir{
+
+    text-decoration:none;
+
+    background:#111;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-seguir:hover{
+
+    background:#2df58a;
+
+    color:#111;
+
+}
+
+/* Etiqueta de producto guardado */
+
+.etiqueta-favorito{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:#ff4d4f;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+
+}
+
+/* La tarjeta será el contenedor */
+
+.producto-favorito{
+
+    position:relative;
+
+}
+
+/*==========================
+      BOTONES PRODUCTO
+===========================*/
+
+.btn-carrito,
+.btn-eliminar{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:none;
+
+    border-radius:30px;
+
+    padding:13px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.btn-carrito{
+
+    background:#111;
+
+    color:white;
+
+}
+
+.btn-carrito:hover{
+
+    background:#2df58a;
+
+    color:#111;
+
+    transform:translateY(-3px);
+
+}
+
+.btn-eliminar{
+
+    background:#ff4d6d;
+
+    color:white;
+
+}
+
+.btn-eliminar:hover{
+
+    background:#d90429;
+
+    transform:translateY(-3px);
+
+}
+
+/*anumacion a las tarjetas*/
+.producto-favorito{
+    animation: aparecer .5s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

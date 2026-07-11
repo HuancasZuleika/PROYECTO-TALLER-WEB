@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <title>Mis Favoritos</title>
+
+        <link rel="stylesheet" href="CSS/estilos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link href="CSS/estilo.fav.css" rel="stylesheet" type="text/css"/>
+        <link href="css/estilosPrincipal.css" rel="stylesheet" type="text/css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.23.0/sweetalert2.all.min.js" integrity="sha512-J+4Nt/+nieSNJjQGCPb8jKf5/wv31QiQM10bOotEHUKc9tB1Pn0gXQS6XXPtDoQhHHao5poTnSByMInzafUqzA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    </head>
+
+    <body>
+
+        <header class="header-favoritos">
+
+            <div class="logo-favoritos">
+                <h2>Urban Athletics</h2>
+                <span>Mis Favoritos</span>
+            </div>
+
+            <a href="../Pag.Principal/indexPag.html" class="btn-seguir">
+                ← Seguir comprando
+            </a>
+
+        </header>
+
+        <div class="contenedor-favoritos">
+
+            <h1>❤️ Mis Favoritos</h1>
+
+            <h3 id="cantidadFavoritos">
+                Artículos (0)
+            </h3>
+            <button id="btnVaciarFavoritos" onclick="vaciarFavoritos()">
+                🗑 Vaciar favoritos
+            </button>
+            <button id="btnMoverCarrito" onclick="moverTodosAlCarrito()">
+                🛒 Agregar todos al carrito
+            </button>
+
+            <div id="listaFavoritos"></div>
+
+        </div>
+
+        <script src="JS/favoritos.js" type="text/javascript"></script>
+        <script src="../Pag.Principal/JS/app.js" type="text/javascript"></script>
+    </body>
+
+</html>

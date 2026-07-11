@@ -12,7 +12,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <link rel="icon" href="imagen/urban Athletics.png" type="image/png">
+        <link href="../Formulario_Favoritos/CSS/estilo.fav.css" rel="stylesheet" type="text/css"/>
         <link href="css/estilosPrincipal.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.23.0/sweetalert2.all.min.js" integrity="sha512-J+4Nt/+nieSNJjQGCPb8jKf5/wv31QiQM10bOotEHUKc9tB1Pn0gXQS6XXPtDoQhHHao5poTnSByMInzafUqzA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
     </head>
     <body>
@@ -36,10 +41,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
 
-                        <li>
-                            <a href="../Formulario_InicioSesión/public_html/index.html" class="icono-nav">
+                        <li class="usuario-menu">
+
+                            <a href="../Formulario_InicioSesion/index.html" class="icono-nav" id="btnUsuario">
                                 <ion-icon name="person-outline"></ion-icon>
+
+                                <span id="nombreUsuario">Iniciar sesión</span>
+
                             </a>
+
+                            <div class="menu-usuario" id="menuUsuario">
+
+                                <a href="../Formulario_Favoritos/favoritos..html">
+                                    ❤️ Mis favoritos
+                                </a>
+
+                                <a href="#" onclick="cerrarSesion()">
+                                    🚪 Cerrar sesión
+                                </a>
+
+                            </div>
+
                         </li>
 
                         <li>
@@ -57,13 +79,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                                       ">0</span>
                             </a>
                         </li>
-                         <li>
-                            <a href="#" class="icono-nav favorito-nav" style="position: relative;">
-                                <ion-icon name="heart-outline"></ion-icon>
+                        <li>
+                            <a href="../Formulario_Favoritos/favoritos..html" class="icono-nav favorito-nav">
+                                <i class="fa-solid fa-heart"></i>
 
-                                <span id="contador-favoritos">
-                                    0
-                                </span>
+                                <span id="contador-favoritos">0</span>
+
                             </a>
                         </li>
 
@@ -216,11 +237,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             <div class="grid-categorias">
                 <!-- 1. POLOS -->
                 <div class="tarjeta-categoria">
-                    <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/polo negro.png" alt="POLOS"/>
+                    <div class="contenedor-imagen">                
+                        <img src="imagen/polo negro.png" alt="POLOS"/>
                     </div>
                     <h3>POLOS</h3>
                     <h2>S/ 29.90</h2>
@@ -233,10 +251,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <!-- 2. CASACAS -->
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/casaca.png" alt="CASACA"/>
+                        <img src="imagen/casaca.png" alt="CASACA"/>
                     </div>
                     <h3>CASACAS</h3>
                     <h2>S/ 89.90</h2>
@@ -247,10 +262,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <!-- 3. JOGGERS -->
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/short.png" alt="SHORT"/>
+                        <img src="imagen/short.png" alt="SHORT"/>
                     </div>
                     <h3>JOGGERS</h3>
                     <h2>S/ 35.90</h2>
@@ -261,10 +273,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <!-- 4. TOP NEGRO -->
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/TOP NEGRO.png" alt="TOP"/>
+
+                        <img src="imagen/TOP NEGRO.png" alt="TOP"/>
                     </div>
                     <h3>TOP </h3>
                     <h2>S/ 20.90</h2>
@@ -275,10 +285,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <!-- 5. TOP BLANCO -->
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/top blanco.png" alt="TOP"/>
+                        <img src="imagen/top blanco.png" alt="TOP"/>
                     </div>
                     <h3>TOP </h3>
                     <h2>S/ 25.90</h2>
@@ -289,10 +296,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <!-- 6. FALDA SHORT ROSITA -->
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/falda rosita .png" alt="FALDA SHORT"/>
+                        <img src="imagen/falda rosita .png" alt="FALDA SHORT"/>
                     </div>
                     <h3>FALDA SHORT </h3>
                     <h2>S/ 25.90</h2>
@@ -303,10 +307,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <!-- 7. FALDA SHORT OSCURA -->
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/short falda.png" alt="FALDA SHORT"/>
+                        <img src="imagen/short falda.png" alt="FALDA SHORT"/>
                     </div>
                     <h3>FALDA SHORT</h3>
                     <h2>S/ 35.90</h2>
@@ -317,10 +318,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <!-- 8. CASACAS SEGUNDO MODELO -->
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/casacas.png" alt="CASACA"/>
+                        <img src="imagen/casacas.png" alt="CASACA"/>
                     </div>
                     <h3>CASACAS</h3>
                     <h2>S/ 60.90</h2>
@@ -331,10 +329,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 <!-- 9. FALDA NEGRA -->
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/falda negra.png" alt="FALDA SHORT"/>
+                        <img src="imagen/falda negra.png" alt="FALDA SHORT"/>
                     </div>
                     <h3>FALDA SHORT</h3>
                     <h2>S/ 35.90</h2>
@@ -344,10 +339,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/Pantalones Cortos.png" alt="Pantalones cortos"/>
+                        <img src="imagen/Pantalones Cortos.png" alt="Pantalones cortos"/>
                     </div>
                     <h3>PANTALONES CORTOS </h3>
                     <h2>S/ 35.90</h2>
@@ -356,10 +348,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 </div>
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/leggings.png" alt="LEGGINGS"/>
+                        <img src="imagen/leggings.png" alt="LEGGINGS"/>
                     </div>
                     <h3> LEGGINGS</h3>
                     <h2>S/ 40.90</h2>
@@ -370,10 +359,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/sosten.png" alt="Sostén de yoga"/>
+                        <img src="imagen/sosten.png" alt="Sostén de yoga"/>
                     </div>
                     <h3>SOSTÉN DE YOGA </h3>
                     <h2>S/ 20.90</h2>
@@ -382,10 +368,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 </div>
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/img1.jpg" alt="Chaqueta deportiva"/>
+                        <img src="imagen/img1.jpg" alt="Chaqueta deportiva"/>
                     </div>
                     <h3>CHAQUETA DEPORTIVA </h3>
                     <h2>S/ 50.00</h2>
@@ -393,12 +376,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     <button onclick="agregarCarrito('CHAQUETA DEPORTIVA ', 50.00, 'imagen/img1.jpg')">Agregar</button>
                 </div>
 
-                <div class="tarjeta-categoria">ç
+                <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/img5.jpg" alt="Sugetador deportivo"/>
+                        <img src="imagen/img5.jpg" alt="Sugetador deportivo"/>
                     </div>
                     <h3>SUGETADOR DEPORTIVO </h3>
                     <h2>S/ 20.90</h2>
@@ -408,10 +388,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <div class="tarjeta-categoria">
                     <div class="contenedor-imagen">
-                        <div class="favorito" onclick="toggleFavorito(this)">
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </div>
-                    <img src="imagen/img7.jpg" alt="Camisa deportiva"/>
+                        <img src="imagen/img7.jpg" alt="Camisa deportiva"/>
                     </div>
                     <h3>CAMISA DEPORTIVA </h3>
                     <h2>S/ 32.90</h2>
@@ -466,45 +443,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                 }
             });
 
-            function agregarCarrito(nombre, precio, imagen) {
-
-                let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-                let producto = {
-                    nombre: nombre,
-                    precio: precio,
-                    imagen: imagen,
-                    cantidad: 1
-                };
-
-                // CORRECCIÓN: Ahora busca que coincidan Nombre E Imagen para considerarlo el mismo artículo
-                let existe = carrito.find(p => p.nombre === nombre && p.imagen === imagen);
-
-                if (existe) {
-                    existe.cantidad++;
-                } else {
-                    carrito.push(producto);
-                }
-
-                localStorage.setItem("carrito", JSON.stringify(carrito));
-
-               actualizarContador();
-
-                alert(nombre + " agregado al carrito ");
-            }
-
-            function actualizarContador() {
-                let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-                let total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-                document.getElementById("contador-carrito").innerText = total;
-            }
-
-            window.onload = actualizarContador;
-            
-            
         </script>
-        
+
         <script src="JS/app.js" type="text/javascript"></script>
-        
+        <a href="../Formulario_Favoritos/favoritos..html"></a>
+
     </body>
 </html>
