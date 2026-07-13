@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Urban Athletics | Formulario de Sugerencias</title>
+
+        <link rel="stylesheet" href="css/estilos.css">
+
+    </head>
+
+    <body>
+
+        <!-- ===========================
+             MODAL DE BIENVENIDA
+        =========================== -->
+
+        <div id="modalBienvenida" class="modalBienvenida">
+
+            <div class="contenidoBienvenida">
+
+                <img src="imagenes/logo.png"
+                     class="logoBienvenida"
+                     alt="Urban Athletics">
+
+                <h2>¡Bienvenida!</h2>
+
+                <p>
+
+                    Antes de comenzar, ingresa tu nombre.
+
+                </p>
+
+                <input
+                    type="text"
+                    id="nombreUsuario"
+                    placeholder="Escribe tu nombre">
+
+                <button id="btnContinuar">
+
+                    Continuar
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- ===========================
+             CONTENEDOR PRINCIPAL
+        =========================== -->
+
+        <div class="contenedor">
+
+            <!-- =======================
+                 PANEL IZQUIERDO
+            ======================== -->
+
+            <div class="info">
+
+                <img src="imagenes/logo.png"
+                     alt="Logo Urban Athletics"
+                     class="logo">
+
+                <h2>Contáctanos</h2>
+
+                <p>
+
+                    <a href="https://www.google.com/maps?q=Abancay+627+Lima"
+                       target="_blank">
+
+                        📍 Abancay 627 - Lima
+
+                    </a>
+
+                </p>
+
+                <p>
+
+                    <a href="https://wa.me/51987654321"
+                       target="_blank">
+
+                        📞 987654321
+
+                    </a>
+
+                </p>
+
+                <p>
+
+                    <a href="mailto:urban@gmail.com">
+
+                        📧 urban@gmail.com
+
+                    </a>
+
+                </p>
+
+                <hr>
+
+                <h3 id="saludo">
+
+                    ¡Bienvenida!
+
+                </h3>
+
+                <p class="descripcion">
+
+                    Tu opinión nos ayuda a mejorar nuestra colección de ropa deportiva femenina, ofreciendo prendas modernas, cómodas y sostenibles para nuestras clientas.
+
+                </p>
+
+                <div class="tarjetaInfo">
+
+                    <h4>¿Por qué enviar una sugerencia?</h4>
+
+                    <p>
+
+                        ✔ Mejoramos nuestros productos.
+
+                    </p>
+
+                    <p>
+
+                        ✔ Escuchamos a nuestras clientas.
+
+                    </p>
+
+                    <p>
+
+                        ✔ Creamos una mejor experiencia de compra.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- =======================
+                 FORMULARIO
+            ======================== -->
+
+            <div class="formulario">
+
+                <h1>Formulario de Sugerencias</h1>
+
+                <p class="subtitulo">
+
+                    Ayúdanos a mejorar Urban Athletics.
+
+                </p>
+
+                <form id="formSugerencia">
+
+                    <label>
+
+                        Nombre completo
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Ingrese su nombre"
+                        required>
+
+                    <label>
+
+                        Correo electrónico
+
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Ingrese su correo"
+                        required>
+
+                    <label>
+
+                        Categoría
+
+                    </label>
+
+                    <select id="categoria">
+
+                        <option value="">Seleccione...</option>
+
+                        <option>Atención al cliente</option>
+
+                        <option>Productos</option>
+
+                        <option>Página Web</option>
+
+                        <option>Entrega</option>
+
+                        <option>Otro</option>
+
+                    </select>
+
+                    <label>
+
+                        Escriba su sugerencia
+
+                    </label>
+
+                    <textarea
+
+                        id="mensaje"
+
+                        maxlength="300"
+
+                        placeholder="Escribe aquí tu sugerencia..."
+
+                        required>
+
+                    </textarea>
+
+                    <div class="contador">
+
+                        <span id="contadorCaracteres">
+
+                            0 / 300 caracteres
+
+                        </span>
+
+                    </div>
+
+                    <button type="submit">
+
+                        Enviar sugerencia
+
+                    </button>
+
+                </form>
+
+                <div id="respuesta"></div>
+                <!-- ===========================
+             BUSCADOR
+        =========================== -->
+
+                <div class="busqueda">
+
+                    <h2>Buscar sugerencias</h2>
+
+                    <input
+                        type="text"
+                        id="buscar"
+                        placeholder="Buscar por nombre o categoría...">
+
+                </div>
+
+                <!-- ===========================
+                     TABLA
+                =========================== -->
+
+                <div class="tablaResponsive">
+
+                    <table id="tablaSugerencias">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Código</th>
+
+                                <th>Nombre</th>
+
+                                <th>Categoría</th>
+
+                                <th>Fecha</th>
+
+                                <th>Hora</th>
+
+                                <th>Acciones</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===========================
+             MODAL CONFIRMACIÓN
+        =========================== -->
+
+        <div id="modal" class="modal">
+
+            <div class="modalContenido">
+
+                <div class="iconoModal">
+
+                    💬
+
+                </div>
+
+                <h2 id="tituloModal">
+
+                    Confirmar envío
+
+                </h2>
+
+                <p id="mensajeModal">
+
+                    ¿Desea registrar esta sugerencia?
+
+                </p>
+
+                <div class="resumen">
+
+                    <p>
+
+                        <strong>Nombre:</strong>
+
+                        <span id="rNombre"></span>
+
+                    </p>
+
+                    <p>
+
+                        <strong>Correo:</strong>
+
+                        <span id="rCorreo"></span>
+
+                    </p>
+
+                    <p>
+
+                        <strong>Categoría:</strong>
+
+                        <span id="rCategoria"></span>
+
+                    </p>
+
+                    <p>
+
+                        <strong>Sugerencia:</strong>
+
+                        <span id="rMensaje"></span>
+
+                    </p>
+
+                </div>
+
+                <div class="botonesModal">
+
+                    <button id="btnAceptar">
+
+                        Sí, enviar
+
+                    </button>
+
+                    <button id="btnCancelar">
+
+                        Cancelar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===========================
+             TOAST
+        =========================== -->
+
+        <div id="toast">
+
+            ✔ Sugerencia registrada correctamente.
+
+        </div>
+
+        <!-- ===========================
+             FOOTER
+        =========================== -->
+
+        <footer>
+
+            © 2026 Urban Athletics | Formulario de Sugerencias
+
+        </footer>
+
+        <script src="script.js"></script>
+
+    </body>
+
+</html>

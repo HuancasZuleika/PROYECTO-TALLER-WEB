@@ -79,6 +79,15 @@ body {
     color: #000;
 }
 
+.menu-toggle{
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
 
 
 /* Iconos del menú */
@@ -95,7 +104,36 @@ body {
     color: #00ff88;
 }
 
+@media (max-width: 768px) {
+    /* Mostramos el botón de tres líneas */
+    .menu-toggle {
+        display: block;
+    }
 
+    /* Convertimos el menú en un panel desplegable hacia abajo */
+    .menu-nav {
+        display: none; /* Oculto por defecto */
+        position: absolute;
+        top: 100%; /* Aparece justo debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        padding: 20px 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    /* Cuando se activa con JavaScript, se muestra */
+    .menu-nav.active {
+        display: block;
+    }
+
+    /* Las opciones se alinean verticalmente */
+    .menu-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
 
 .hero-section {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../imagenes/img6.png') no-repeat center center/cover;
@@ -678,7 +716,7 @@ body {
     transform: scale(1.15);
 }
 
-/*deontro de la pagina del corazon*/
+/*dentro de la pagina del corazon*/
 .card-favorito{
 
     width:900px;

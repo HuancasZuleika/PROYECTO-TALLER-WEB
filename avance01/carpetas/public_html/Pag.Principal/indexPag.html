@@ -37,7 +37,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
                 </div>
-                <nav class="menu-nav">
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+
+                <nav class="menu-nav" id="menuNav">
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
 
@@ -117,7 +122,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         <section class="carrusel">
             <div class="carrusel-descuentos">
                 <div class="product">
-                    <img src="imagen/img1.jpg" alt=""/>
+                    <div class="contenedor-imagen">                
+                        <img src="imagen/img1.jpg" alt="POLOS"/>
+                    </div>
                     <button onclick="agregarCarrito('CASACA NEGRA', 29.90, 'imagen/img1.jpg')" class="boton-comprar">
                         Agregar
                     </button>
@@ -410,7 +417,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
 
                 <div class="footer-col">
                     <h4>Soporte</h4>
-                    <a href="../Formulario contactanos/index.html">Contáctanos</a>
+                    <a href="../Formulario_Sugerencias/index.html">Sugerencias</a>
                     <a href="../Formulario de Recomendaciones/index.html">Libro de Reclamos</a>
                 </div>
 
@@ -444,7 +451,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             });
 
         </script>
-
+        
         <script src="JS/app.js" type="text/javascript"></script>
         <a href="../Formulario_Favoritos/favoritos..html"></a>
 

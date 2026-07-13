@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/javascript.js to edit this template
  */
 /*carrito*/
+
+
 function agregarCarrito(nombre, precio, imagen, mostrarAlerta = true) {
 
     if (localStorage.getItem("sesionActiva") !== "true") {
@@ -55,6 +57,8 @@ function agregarCarrito(nombre, precio, imagen, mostrarAlerta = true) {
         timer: 1500
     });
 }
+
+
 
 function actualizarContador() {
 
@@ -193,6 +197,8 @@ function cargarFavoritos() {
     });
 
 }
+
+
 
 /*actualizar corazon*/
 function actualizarContadorCorazon() {
@@ -423,3 +429,10 @@ function guardarCarrito(carrito) {
     guardarUsuarios(usuarios);
 
 }
+
+const menuToggle = document.getElementById('menuToggle');
+const menuNav = document.getElementById('menuNav');
+
+menuToggle.addEventListener('click', () => {
+    menuNav.classList.toggle('active');
+});
