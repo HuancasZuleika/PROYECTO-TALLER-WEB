@@ -1,0 +1,390 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pagar</title>
+
+        <link href="CSS/estilo_Pago.css" rel="stylesheet" type="text/css"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+
+        <!-- Barra de progreso -->
+
+        <div class="progreso-compra">
+            <span>Carrito</span>
+            <span>></span>
+            <span>Procede al pago</span>
+            <span>></span>
+            <span class="activo">Pagar</span>
+            <span>></span>
+            <span>Pedido completo</span>
+        </div>
+
+        <div class="contenedor-pago">
+
+            <!-- RESUMEN -->
+
+            <div class="resumen">
+
+                <h2>Resumen del Pedido</h2>
+
+                <div class="fila">
+                    <span>Subtotal</span>
+                    <span id="subtotal">S/0.00</span>
+                </div>
+
+                <div class="fila">
+                    <span>Envío</span>
+                    <span class="gratis">Gratis</span>
+                </div>
+
+                <hr>
+
+                <div class="fila total">
+                    <strong>Total</strong>
+                    <strong id="total">S/0.00</strong>
+                </div>
+
+                <button id="btnPagar" class="btn-pagar">
+                    PAGAR AHORA
+                </button>
+
+            </div>
+
+            <!-- MÉTODO DE PAGO -->
+
+
+
+
+            <div class="metodo-pago">
+
+                <h2>Método de Pago</h2>
+
+                <div class="opciones">
+
+                    <label>
+                        <input type="radio" name="metodo" value="tarjeta" checked>
+                        Tarjeta
+                    </label>
+
+                    <label>
+                        <input type="radio" name="metodo" value="yape">
+                        Yape
+                    </label>
+
+                    <label>
+                        <input type="radio" name="metodo" value="plin">
+                        Plin
+                    </label>
+
+                    <label>
+                        <input type="radio" name="metodo" value="efectivo">
+                        PagoEfectivo
+                    </label>
+
+                </div>
+
+                <div id="contenidoPago">
+
+                    <div class="grupo">
+
+                        <label>Número de tarjeta</label>
+
+                        <input
+                            type="text"
+                            placeholder="1234 5678 9012 3456">
+
+                    </div>
+
+                    <div class="grupo">
+
+                        <label>Nombre del titular</label>
+
+                        <input
+                            type="text"
+                            placeholder="Juan Pérez">
+
+                    </div>
+
+                    <div class="fila-doble">
+
+                        <div class="grupo">
+
+                            <label>MM/AA</label>
+
+                            <input type="text">
+
+                        </div>
+
+                        <div class="grupo">
+
+                            <label>CVV</label>
+
+                            <input
+                                type="password">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+            // Calcular total
+            let totalCompra = carrito.reduce((a, p) => a + (p.precio * p.cantidad), 0);
+
+            document.getElementById("subtotal").innerHTML = "S/" + totalCompra.toFixed(2);
+            document.getElementById("total").innerHTML = "S/" + totalCompra.toFixed(2);
+
+            // Variable para validar el pago
+            let pagoRealizado = false;
+
+            const radios = document.querySelectorAll("input[name='metodo']");
+            const contenido = document.getElementById("contenidoPago");
+
+            // Mostrar formulario de tarjeta al iniciar
+            mostrarTarjeta();
+
+            radios.forEach(radio => {
+
+                radio.addEventListener("change", function () {
+
+                    pagoRealizado = false;
+
+                    switch (this.value) {
+
+                        case "tarjeta":
+                            mostrarTarjeta();
+                            break;
+
+                        case "yape":
+                            mostrarYape();
+                            break;
+
+                        case "plin":
+                            mostrarPlin();
+                            break;
+
+                        case "efectivo":
+                            mostrarEfectivo();
+                            break;
+
+                    }
+
+                });
+
+            });
+
+            //------------- TARJETA ----------------
+
+            function mostrarTarjeta() {
+
+                contenido.innerHTML = `
+                <div class="grupo">
+                    <label>Número de tarjeta</label>
+                    <input id="numeroTarjeta" type="text" placeholder="1234 5678 9012 3456">
+                </div>
+
+                <div class="grupo">
+                    <label>Nombre del titular</label>
+                    <input id="titular" type="text" placeholder="Juan Pérez">
+                </div>
+
+                <div class="fila-doble">
+
+                    <div class="grupo">
+                        <label>MM/AA</label>
+                        <input id="fecha" type="text" placeholder="08/28">
+                    </div>
+
+                    <div class="grupo">
+                        <label>CVV</label>
+                        <input id="cvv" type="password" placeholder="123">
+                    </div>
+
+                </div>
+
+                <button id="confirmarTarjeta" class="btn-pagar">
+                    Procesar pago
+                </button>
+            `;
+
+                document.getElementById("confirmarTarjeta").onclick = function () {
+
+                    let numero = document.getElementById("numeroTarjeta").value.trim();
+                    let titular = document.getElementById("titular").value.trim();
+                    let fecha = document.getElementById("fecha").value.trim();
+                    let cvv = document.getElementById("cvv").value.trim();
+
+                    if (numero == "" || titular == "" || fecha == "" || cvv == "") {
+
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Complete todos los datos."
+                        });
+
+                        return;
+                    }
+
+                    pagoRealizado = true;
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Pago con tarjeta procesado"
+                    });
+
+                };
+
+            }
+
+            //------------- YAPE ----------------
+
+            function mostrarYape() {
+
+                contenido.innerHTML = `
+
+                <div class="qr">
+
+<img src="../Pag.Principal/imagen/QR Yape.png" alt="QR Yape"                        alt="QR Yape"
+                         width="250">
+
+                    <p>Escanea el QR desde Yape.</p>
+
+                    <button id="confirmarYape" class="btn-pagar">
+                        Ya realicé el pago
+                    </button>
+
+                </div>
+
+            `;
+
+                document.getElementById("confirmarYape").onclick = function () {
+
+                    pagoRealizado = true;
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Pago por Yape confirmado"
+                    });
+
+                }
+
+            }
+
+            //------------- PLIN ----------------
+
+            function mostrarPlin() {
+
+                contenido.innerHTML = `
+
+                <div class="qr">
+
+                    <img src="../Pag.Principal/imagen/QRPlin.png" alt="QR Plin"
+                         width="250">
+
+                    <p>Escanea el QR desde Plin.</p>
+
+                    <button id="confirmarPlin" class="btn-pagar">
+                        Ya realicé el pago
+                    </button>
+
+                </div>
+
+            `;
+
+                document.getElementById("confirmarPlin").onclick = function () {
+
+                    pagoRealizado = true;
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Pago por Plin confirmado"
+                    });
+
+                }
+
+            }
+
+            //------------- PAGO EFECTIVO ----------------
+
+            function mostrarEfectivo() {
+
+                contenido.innerHTML = `
+
+                <div class="efectivo">
+
+                    <h3>PagoEfectivo</h3>
+
+                    <p>Presione el botón para generar su código CIP.</p>
+
+                    <button id="generarCIP" class="btn-pagar">
+                        Generar CIP
+                    </button>
+
+                </div>
+
+            `;
+
+                document.getElementById("generarCIP").onclick = function () {
+
+                    pagoRealizado = true;
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Código CIP generado",
+                        text: "Ya puedes pagar en los agentes autorizados."
+                    });
+
+                }
+
+            }
+
+            //------------- BOTÓN PAGAR ----------------
+
+            document.getElementById("btnPagar").onclick = function () {
+
+                if (!pagoRealizado) {
+
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Pago pendiente",
+                        text: "Primero debes completar el método de pago."
+                    });
+
+                    return;
+
+                }
+
+                Swal.fire({
+
+                    icon: "success",
+                    title: "Pago realizado correctamente"
+
+                }).then(() => {
+
+                    localStorage.removeItem("carrito");
+
+                    window.location = "pedidoCompleto.html";
+
+                });
+
+            }
+
+        </script>
+
+
+
+    </body>
+</html>
