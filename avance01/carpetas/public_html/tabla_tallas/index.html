@@ -16,24 +16,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="js/js.js" type="text/javascript"></script>
+        <link href="css/reviews.css" rel="stylesheet" type="text/css"/>
+        
     </head>
     <body>
         <header>
             <h1>Guía de tallas</h1>
+            <a href="../Pag.Principal/index.html" class="logo">
+                <a href="../Pag.Principal/indexPag.html" class="logo">
+            <img src="../Pag.Principal/imagen/urban Athletics.png" alt="logo"/>
+  </a>
         </header>
 
         <div class="botones">
             <a href="#polo">Polos</a>
-            <a href="#sudadera">Sudaderas</a>
+            <a href="#sudadera">Casacas</a>
             <a href="#jogger">Joggers</a>
             <a href="#leggings">Leggings</a>
         </div>
         <main>
             <section id="polo">
                 <h2>Tabla de tallas - Polo</h2> 
+                
                 <div class="contenedor">
-                    <img src="imagenes/Polo_blanco.png" alt=""/>
+                    <div class="carrusel_imagenes">
+                    <div class="slides">
+                        <img src="imagenes/polo2.png" alt=""/>
+                        <img src="imagenes/polo3.png" alt=""/>
+                        <img src="imagenes/polo1.png" alt=""/>
+                        <img src="imagenes/polo2.png" alt=""/>
+                        <img src="imagenes/polo3.png" alt=""/>
+                        <img src="imagenes/polo1.png" alt=""/>
+                    </div>
+                </div>
                     <table class= "tabla_tallas_polo">
+                        <caption>Guía de tallas - Polos</caption>
                         <thead>
                             <tr>
                                 <th>Talla</th>
@@ -63,12 +80,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                             </tr>
                         </tbody>
                     </table>
+                    </div>
             </section>
             <section id="sudadera">
                 <h2>Tabla de tallas - Sudadera</h2>  
+                
                 <div class="contenedor">
-                    <img src="imagenes/Sudadera_blanco.png" alt=""/> 
+                    <div class="carrusel_imagenes">
+                    <div class="slides">
+                        <img src="imagenes/cas1.png" alt=""/>
+                        <img src="imagenes/cas2.png" alt=""/>
+                        <img src="imagenes/cas3.png" alt=""/>
+                        <img src="imagenes/cas1.png" alt=""/>
+                        <img src="imagenes/cas2.png" alt=""/>
+                        <img src="imagenes/cas3.png" alt=""/>
+                        </div>
+                </div>
                     <table class= "tabla_tallas_sudadera">
+                        <caption>Guía de tallas - Casaca</caption>
                         <thead>
                             <tr>
                                 <th>Talla</th>
@@ -102,8 +131,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             <section id="jogger">
                 <h2>Tabla de tallas - Jogger</h2>
                 <div class="contenedor">
-                    <img src="imagenes/Jogger_blanco.png" alt=""/> 
+                    <div class="carrusel_imagenes">
+                    <div class="slides">
+                        <img src="imagenes/pant1.png" alt=""/>
+                        <img src="imagenes/pant2.png" alt=""/>
+                        <img src="imagenes/pant3.png" alt=""/>
+                        <img src="imagenes/pant1.png" alt=""/>
+                        <img src="imagenes/pant2.png" alt=""/>
+                        <img src="imagenes/pant3.png" alt=""/>
+                    </div>
+                </div>     
                     <table class="tabla_tallas_jogger">
+                        <caption>Guía de tallas - Joggers</caption>
                         <thead>
                             <tr>
                                 <th>Talla</th>
@@ -150,8 +189,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
             <section id="leggings">
                 <h2>Tabla de tallas - Leggings</h2>
                 <div class="contenedor">
-                    <img src="imagenes/Leggings_blanco.png" alt=""/>    
+                    <div class="carrusel_imagenes">
+                    <div class="slides">
+                        <img src="imagenes/leg1.png" alt=""/>
+                        <img src="imagenes/leg2.png" alt=""/>
+                        <img src="imagenes/leg3.png" alt=""/>
+                        <img src="imagenes/leg1.png" alt=""/>
+                        <img src="imagenes/leg2.png" alt=""/>
+                        <img src="imagenes/leg3.png" alt=""/>
+                    </div>
+                </div>       
                     <table class="tabla_tallas_leggings">
+                        <caption>Guía de tallas - Leggings</caption>
                         <thead>
                             <tr>
                                 <tH>Talla</tH>
@@ -206,11 +255,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
                     <p id="resultadoTalla"></p>
                 </div>
             </div>
+        <section id="fit-review">
+  <h2>Califica el ajuste</h2>
+  <div id="stars">
+    <span onclick="setRating(1)">★</span>
+    <span onclick="setRating(2)">★</span>
+    <span onclick="setRating(3)">★</span>
+    <span onclick="setRating(4)">★</span>
+    <span onclick="setRating(5)">★</span>
+  </div>
+  <textarea id="comentario" placeholder="Escribe tu opinión..."></textarea>
+  <button onclick="guardarReview()">Enviar reseña</button>
+</section>
 
+<section id="reviews-container"></section>
 
         </main>
+        <script src="js/ranqueo_opinion.js" type="text/javascript"></script>
     </body>  
     <footer class="footer-principal">
+
         <div class="contenido-footer">
 
             <div class="footer-col">

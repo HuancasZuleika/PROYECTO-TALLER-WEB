@@ -1,0 +1,73 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 13 jul. 2026, 12:42:52 p. m.
+    Author     : Samantha
+*/
+#fit-review, #resumen, #reviews-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #ccffff; /* fondo blanco para que el texto se vea */
+}
+
+/* Estrellas */
+#stars span {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc; /* gris por defecto */
+}
+
+#stars span.active {
+  color: black; /* tu color principal */
+}
+
+/* Textarea */
+#comentario {
+  width: 100%;
+  min-height: 60px;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;       /* texto oscuro para que se vea */
+  background: #ccffff;  /* fondo blanco */
+}
+
+/* Botón */
+#fit-review button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #00ff88; /* tu color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#fit-review button:hover {
+  background-color: #005fa3; /* tono más oscuro */
+}
+
+/* Cada reseña */
+.review {
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  padding-top: 10px;
+  text-align: left;
+}
+
+.review p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333; /* texto oscuro para que se lea */
+}
+
+.review strong {
+  color: #0077cc; /* estrellas en tu color */
+}

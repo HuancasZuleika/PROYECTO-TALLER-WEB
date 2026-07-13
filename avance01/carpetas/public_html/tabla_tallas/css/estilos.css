@@ -18,19 +18,37 @@ html, body{
     background-color:black;
     font-family:'Poppins', sans-serif;
 }
+caption {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ccffff;
+}
 header{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:60px;
-    background-color:#00ff88;
+    background-color:#ccffff;
     display:flex;
-    justify-content:center;
     align-items:center;
+    padding: 0 20px;
     z-index:1000;
 }
+header .logo {
+    position: absolute; 
+    left: 0px;}    
+header .logo img {
+  height: 70px;   
+  width: auto;
+  cursor: pointer;
+ display:flex;
+}
 header h1{
+    flex:1;
+    text-align: center;
     margin:0;
     font-size:28px;
     color:black;
@@ -56,20 +74,43 @@ header h1{
 }
 
 .botones a:hover{
-    background:#00ff88;
+    background:#ccffff;
     color: black
 }
 
 .botones a:not(:last-child){
-    border-right:2px solid #00ff88;
+    border-right:2px solid #ccffff;
 }
+
 .contenedor {
-  display: flex;             
-  justify-content: center;    
-  align-items: flex-start;    
-  gap: 40px;                  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px; 
+}
+.tabla_tallas_polo .tabla_tallas_sudadera {
+  flex: 0 0 auto; 
+}
+.carrusel_imagenes {
+  width: 300px;      
+  overflow: hidden;
   margin: 20px auto;
-  max-width: 1000px;
+  border-radius: 8px;
+}
+.slides {
+  display: flex;
+  width: calc(300px * 6); 
+  animation: deslizar 15s linear infinite;
+}
+
+.slides img {
+  width: 300px;
+  height: auto;
+}
+
+@keyframes deslizar {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-900px); } 
 }
 .contenedor img {
   width: 400px;     
@@ -87,7 +128,7 @@ header h1{
 }
 
 .tabla_tallas_jogger, .tabla_tallas_leggings, .tabla_tallas_polo, .tabla_tallas_sudadera {
-    border: 1px solid #3AB397;
+    border: 1px solid #ccffff;
     margin: auto;
     background-color:white;
     border-radius: 5px;
@@ -108,8 +149,8 @@ table td:hover {
   box-shadow: inset 2px 2px 5px #999, inset -2px -2px 5px #fff;
 }
 section {
-  display: none;
-  opacity:0;
+  display: block;
+  opacity:1;
   transition: opacity 0.5s ease-in-out;
 }
 section:target {
@@ -155,7 +196,7 @@ section:target {
 }
 
 .footer-col a:hover {
-  color: #3AB397; 
+  color: #ccffff; 
 }
 .redes-sociales {
   display: flex;          
@@ -190,7 +231,7 @@ section:target {
   .botones a {
     text-align: center;
     border-right: none;
-    border-bottom: 2px solid #00ff88;
+    border-bottom: 2px solid #ccffff;
   }
 
   .contenedor {
@@ -232,7 +273,7 @@ section:target {
   width: 350px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0,255,136,0.4); 
+  box-shadow: 0 6px 20px #ccffff; 
   animation: aparecer 0.4s ease-in-out;
 }
 
@@ -294,7 +335,10 @@ section:target {
   color: #00ff88;
 }
 #abrirModal {
-  padding: 15px 30px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+   padding: 12px 20px;
   font-size: 18px;
   font-weight: 600;
   background-color: black;
