@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<link rel="icon" type="image/png" href="../Pag.Principal/imagen/urban Athletics.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedido Completo | Urban Athletics</title>
+
+    <link rel="stylesheet" href="CSS/estilo_pedidocompleto.css">
+
+    <!-- Librería para descargar PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- MENSAJE -->
+        <div class="mensaje">
+
+            <h1>✔ ¡Pago realizado correctamente!</h1>
+
+            <p>Gracias por confiar en Urban Athletics.</p>
+
+        </div>
+
+        <!-- BOLETA -->
+        <div class="boleta" id="boleta">
+
+            <!-- ENCABEZADO -->
+            <div class="encabezado">
+
+                <div class="logoEmpresa">
+
+                    <!-- Cambia la ruta por la de tu logo -->
+                    <img src="../Pag.Principal/imagen/urban Athletics.png" alt="Urban Athletics">
+
+                </div>
+
+                <div class="empresa">
+
+                    <h2>URBAN ATHLETICS</h2>
+
+                    <p>Tienda de Ropa Deportiva</p>
+
+                    <p>RUC: 20123456789</p>
+
+                    <p>Lima - Perú</p>
+
+                </div>
+
+                <div class="boletaNumero">
+
+                    <h3>BOLETA</h3>
+
+                    <h2 id="numeroBoleta">B001-000001</h2>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <!-- DATOS -->
+
+            <div class="datosCliente">
+
+                <div>
+
+                    <p><strong>Cliente:</strong></p>
+
+                    <span id="cliente"></span>
+
+                </div>
+
+                <div>
+
+                    <p><strong>Fecha:</strong></p>
+
+                    <span id="fecha"></span>
+
+                </div>
+
+            </div>
+
+            <!-- TABLA -->
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Producto</th>
+
+                        <th>Cantidad</th>
+
+                        <th>Precio</th>
+
+                        <th>Subtotal</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="detalle">
+
+                </tbody>
+
+            </table>
+
+            <!-- RESUMEN -->
+
+            <div class="resumenPago">
+
+                <div>
+
+                    <span>Subtotal</span>
+
+                    <span id="subtotal">S/0.00</span>
+
+                </div>
+
+                <div>
+
+                    <span>IGV (18%)</span>
+
+                    <span id="igv">S/0.00</span>
+
+                </div>
+
+                <div class="lineaTotal">
+
+                    <strong>TOTAL</strong>
+
+                    <strong id="total">S/0.00</strong>
+
+                </div>
+
+            </div>
+
+            <!-- MENSAJE -->
+
+            <div class="gracias">
+
+                <h3>¡Gracias por su compra!</h3>
+
+                <p>
+
+                    Esperamos volver a verlo muy pronto.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- BOTONES -->
+
+        <div class="botones">
+
+            <button class="btnImprimir" onclick="window.print()">
+
+                🖨 Imprimir
+
+            </button>
+
+            <button class="btnPDF" onclick="descargarPDF()">
+
+                📄 Descargar PDF
+
+            </button>
+
+            <button class="btnInicio"
+                    onclick="window.location='../Pag.Principal/indexPag.html'">
+
+                🏠 Volver al Inicio
+
+            </button>
+
+        </div>
+
+    </div>
+
+<script>
+
+let compra = JSON.parse(localStorage.getItem("boleta")) || [];
+
+let usuario = JSON.parse(localStorage.getItem("usuarioActual"));
+
+if(usuario){
+
+    document.getElementById("cliente").innerHTML = usuario.nombre;
+
+}else{
+
+    document.getElementById("cliente").innerHTML = "Cliente";
+
+}
+
+document.getElementById("fecha").innerHTML =
+new Date().toLocaleString("es-PE");
+
+let detalle = document.getElementById("detalle");
+
+let subtotalGeneral = 0;
+
+compra.forEach(producto=>{
+
+    let subtotal = producto.precio * producto.cantidad;
+
+    subtotalGeneral += subtotal;
+
+    detalle.innerHTML += `
+
+        <tr>
+
+            <td>${producto.nombre}</td>
+
+            <td>${producto.cantidad}</td>
+
+            <td>S/${producto.precio.toFixed(2)}</td>
+
+            <td>S/${subtotal.toFixed(2)}</td>
+
+        </tr>
+
+    `;
+
+});
+
+let igv = subtotalGeneral * 0.18;
+
+let total = subtotalGeneral + igv;
+
+document.getElementById("subtotal").innerHTML =
+"S/" + subtotalGeneral.toFixed(2);
+
+document.getElementById("igv").innerHTML =
+"S/" + igv.toFixed(2);
+
+document.getElementById("total").innerHTML =
+"S/" + total.toFixed(2);
+
+// Número de boleta
+
+let numero = localStorage.getItem("numeroBoleta") || 1;
+
+document.getElementById("numeroBoleta").innerHTML =
+"B001-" + String(numero).padStart(6,"0");
+
+localStorage.setItem("numeroBoleta",Number(numero)+1);
+
+// Descargar PDF
+
+function descargarPDF() {
+
+    const elemento = document.getElementById("boleta");
+
+    const opciones = {
+
+        margin: 10,
+
+        filename: "Boleta_Urban_Athletics.pdf",
+
+        image: {
+            type: "jpeg",
+            quality: 1
+        },
+
+        html2canvas: {
+            scale: 3,
+            useCORS: true,
+            scrollY: 0
+        },
+
+        jsPDF: {
+            unit: "mm",
+            format: "a4",
+            orientation: "portrait"
+        },
+
+        pagebreak: {
+            mode: ['avoid-all', 'css', 'legacy']
+        }
+
+    };
+
+    html2pdf()
+        .set(opciones)
+        .from(elemento)
+        .save();
+}
+
+</script>
+
+</body>
+
+</html>

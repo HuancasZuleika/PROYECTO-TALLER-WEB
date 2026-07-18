@@ -1,0 +1,419 @@
+/* ===========================
+   ESTILOS GENERALES
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#ececec;
+
+}
+
+.contenedor{
+
+    width:1000px;
+    margin:40px auto;
+
+}
+
+
+/*=========================
+MENSAJE
+=========================*/
+
+.mensaje{
+
+    background:#fff;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    margin-bottom:25px;
+
+}
+
+.mensaje h1{
+
+    color:#009c52;
+    margin-bottom:10px;
+
+}
+
+.mensaje p{
+
+    color:#666;
+    font-size:17px;
+
+}
+
+
+/*=========================
+BOLETA
+=========================*/
+
+.boleta{
+
+    background:white;
+    border-radius:12px;
+    padding:35px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+
+}
+
+
+/*=========================
+ENCABEZADO
+=========================*/
+
+.encabezado{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+}
+
+.logoEmpresa{
+
+    width:180px;
+
+}
+
+.logoEmpresa img{
+
+    width:100%;
+
+}
+
+.empresa{
+
+    text-align:center;
+
+}
+
+.empresa h2{
+
+    font-size:32px;
+    letter-spacing:2px;
+
+}
+
+.empresa p{
+
+    color:#555;
+    margin-top:6px;
+
+}
+
+.boletaNumero{
+
+    border:2px solid #222;
+    border-radius:8px;
+    padding:15px;
+    text-align:center;
+    width:200px;
+
+}
+
+.boletaNumero h3{
+
+    color:#555;
+    margin-bottom:10px;
+
+}
+
+.boletaNumero h2{
+
+    color:#009c52;
+}
+
+
+/*=========================
+LINEA
+=========================*/
+
+hr{
+
+    margin:30px 0;
+
+}
+
+
+/*=========================
+DATOS CLIENTE
+=========================*/
+
+.datosCliente{
+
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+
+}
+
+.datosCliente div{
+
+    width:45%;
+
+}
+
+.datosCliente p{
+
+    font-weight:bold;
+    margin-bottom:5px;
+
+}
+
+.datosCliente span{
+
+    color:#444;
+
+}
+
+
+/*=========================
+TABLA
+=========================*/
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+table thead{
+
+    background:#111;
+    color:white;
+
+}
+
+table th{
+
+    padding:15px;
+
+}
+
+table td{
+
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+
+}
+
+table tbody tr:hover{
+
+    background:#f5f5f5;
+
+}
+
+
+/*=========================
+RESUMEN
+=========================*/
+
+.resumenPago{
+
+    width:320px;
+    margin-left:auto;
+    margin-top:30px;
+
+}
+
+.resumenPago div{
+
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+
+}
+
+.lineaTotal{
+
+    margin-top:15px;
+    border-top:2px solid #000;
+    padding-top:15px;
+    font-size:22px;
+    color:#009c52;
+
+}
+
+
+/*=========================
+GRACIAS
+=========================*/
+
+.gracias{
+
+    margin-top:40px;
+    text-align:center;
+    border-top:1px dashed #bbb;
+    padding-top:25px;
+
+}
+
+.gracias h3{
+
+    color:#009c52;
+    margin-bottom:10px;
+
+}
+
+.gracias p{
+
+    color:#666;
+
+}
+
+
+/*=========================
+BOTONES
+=========================*/
+
+.botones{
+
+    margin-top:35px;
+    text-align:center;
+
+}
+
+.botones button{
+
+    border:none;
+    padding:15px 28px;
+    margin:10px;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+
+}
+
+.btnImprimir{
+
+    background:#222;
+
+}
+
+.btnPDF{
+
+    background:#009c52;
+
+}
+
+.btnInicio{
+
+    background:#0057b8;
+
+}
+
+.botones button:hover{
+
+    transform:translateY(-3px);
+    box-shadow:0 5px 10px rgba(0,0,0,.25);
+
+}
+
+
+/*=========================
+IMPRESIÓN
+=========================*/
+
+@media print {
+
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+
+    /* Oculta todo */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Muestra solo la boleta */
+    #boleta,
+    #boleta * {
+        visibility: visible;
+    }
+
+    #boleta {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        box-shadow: none;
+        border: none;
+        page-break-inside: avoid;
+    }
+
+    .mensaje,
+    .botones {
+        display: none !important;
+    }
+
+}
+
+/*=========================
+RESPONSIVE
+=========================*/
+
+@media(max-width:900px){
+
+    .contenedor{
+
+        width:95%;
+
+    }
+
+    .encabezado{
+
+        flex-direction:column;
+        gap:20px;
+
+    }
+
+    .datosCliente{
+
+        flex-direction:column;
+
+    }
+
+    .datosCliente div{
+
+        width:100%;
+        margin-bottom:15px;
+
+    }
+
+    .resumenPago{
+
+        width:100%;
+
+    }
+
+    table{
+
+        font-size:14px;
+
+    }
+
+}
