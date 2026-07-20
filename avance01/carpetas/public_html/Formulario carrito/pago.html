@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <link rel="icon" type="image/png" href="../Pag.Principal/imagen/urban Athletics.png">
         <meta charset="UTF-8">
         <title>Pagar</title>
 
@@ -353,34 +354,37 @@
 
             //------------- BOTÓN PAGAR ----------------
 
-            document.getElementById("btnPagar").onclick = function () {
+         document.getElementById("btnPagar").onclick = function () {
 
-                if (!pagoRealizado) {
+    if (!pagoRealizado) {
 
-                    Swal.fire({
-                        icon: "warning",
-                        title: "Pago pendiente",
-                        text: "Primero debes completar el método de pago."
-                    });
+        Swal.fire({
+            icon: "warning",
+            title: "Pago pendiente",
+            text: "Primero debes completar el método de pago."
+        });
 
-                    return;
+        return;
+    }
 
-                }
+    Swal.fire({
+        icon: "success",
+        title: "Pago realizado correctamente"
 
-                Swal.fire({
+    }).then(() => {
 
-                    icon: "success",
-                    title: "Pago realizado correctamente"
+        // Guardar la compra para la boleta
+        localStorage.setItem("boleta", JSON.stringify(carrito));
 
-                }).then(() => {
+        // Vaciar el carrito
+        localStorage.removeItem("carrito");
 
-                    localStorage.removeItem("carrito");
+        // Ir al comprobante
+        window.location = "pedidoCompleto.html";
 
-                    window.location = "pedidoCompleto.html";
+    });
 
-                });
-
-            }
+};
 
         </script>
 

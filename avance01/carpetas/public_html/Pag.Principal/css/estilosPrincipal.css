@@ -258,7 +258,7 @@ body {
     margin-top: 8px;
     border: none;
     border-radius: 10px;
-    background: #33ff99;
+    background:#2ecc93;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -274,7 +274,7 @@ body {
 .btn-enlace{
     display: inline-block;
     margin-top: 5px;
-    color: #00ff88;
+    color:#3AB397;
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s;
@@ -330,7 +330,7 @@ body {
 
 @media (max-width:1400px){
     body{
-        background-color:#388C4B;
+        background-color:#8FECCF;
     }
     .tarjeta-categoria img {
         width: 220px;
