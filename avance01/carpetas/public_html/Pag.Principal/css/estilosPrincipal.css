@@ -79,6 +79,7 @@ body {
     color: #000;
 }
 
+/*menú responsive*/
 .menu-toggle{
     display: none;
     background: none;
@@ -104,6 +105,7 @@ body {
     color: #00ff88;
 }
 
+/*menú responsive*/
 @media (max-width: 768px) {
     /* Mostramos el botón de tres líneas */
     .menu-toggle {
@@ -134,6 +136,7 @@ body {
         gap: 15px;
     }
 }
+
 
 .hero-section {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../imagenes/img6.png') no-repeat center center/cover;

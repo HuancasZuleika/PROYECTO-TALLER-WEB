@@ -429,7 +429,7 @@ function guardarCarrito(carrito) {
     guardarUsuarios(usuarios);
 
 }
-
+//menú responsive
 const menuToggle = document.getElementById('menuToggle');
 const menuNav = document.getElementById('menuNav');
 
